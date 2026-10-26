@@ -1,3 +1,9 @@
+import login 
+import menues
+import dice
+
+
+
 benutzer = {"Pia": "1234", "Anna": "pw" }
 # print(benutzer)
 
