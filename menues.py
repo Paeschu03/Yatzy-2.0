@@ -1,9 +1,28 @@
-import dice
+import dice 
+import create_account
+import login
+import tutorial
+
 def startausgabe():
-    print("Hier kommt die Frage")
-    #A
-    #weiterleitung zum login
-    #B
-    #spielen als Gast
-    dice.start_wuerfel()
-    
+    print("Herzlich willkommen zu unserem Yatzy, wie möchtest du vorgehen? ")
+    aktion = input("(A) als Gast spielen, (B) Account erstellen oder (C) Einloggen: ").lower().strip()
+
+    if aktion == "a":
+        tutorial_durchführen = input("Möchtest du noch ein kurzes Tutorial durchführen? Ja/Nein")
+
+        if tutorial_durchführen == "Ja":
+            tutorial.start_tutorial
+
+        elif aktion == "Nein":
+            dice.start_wuerfel()
+
+        else:
+            print(tutorial_durchführen)
+
+        
+
+    elif aktion == "b":
+        create_account.account_erstellen()
+
+    elif aktion == "c":
+        login.einloggen()
