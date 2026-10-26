@@ -1,7 +1,7 @@
 import dice 
-import create_account
 import login
 import tutorial
+import change_userdata
 
 def startausgabe():
     print("Herzlich willkommen zu unserem Yatzy, wie möchtest du vorgehen? ")
@@ -22,7 +22,7 @@ def startausgabe():
         
 
     elif aktion == "b":
-        create_account.account_erstellen()
+        change_userdata.account_erstellen()
 
     elif aktion == "c":
         login.einloggen()
