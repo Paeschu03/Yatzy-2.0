@@ -1,4 +1,4 @@
-import login 
+# import login 
 import menues
 import dice
 import tutorial
@@ -18,18 +18,20 @@ if neuer_benutzer in ["ja", "j", "yes", "jo", "klar", "ju"]:
 else:
     print("Oke. Dann legen wir dir kein neues Benutzerkonto an")
 
-loeschen_antwort = input("Möchtest du deinen Account wirklich löschen? ").strip().lower()
-if loeschen_antwort in ["ja", "j", "yes", "jo", "klar", "ju"]:
-    loeschen_name = input("Alles klar. Welchen Account möchstest du löschen? ").strip()
-    if loeschen_name in benutzer:
-        loeschen_passwort = input("Gebe zur endgültigen Löschung noch dein Passwort ein: ")
-        if loeschen_passwort == benutzer[loeschen_name]:
-            del benutzer[loeschen_name]
-            print(f"Dein Account {loeschen_name} wurde gelöscht.")
+def konto_loeschen(benutzer):
+    loeschen_antwort = input("Möchtest du deinen Account wirklich löschen? ").strip().lower()
+    if loeschen_antwort in ["ja", "j", "yes", "jo", "klar", "ju"]:
+        loeschen_name = input("Alles klar. Welchen Account möchstest du löschen? ").strip()
+        if loeschen_name in benutzer:
+            loeschen_passwort = input("Gebe zur endgültigen Löschung noch dein Passwort ein: ")
+            if loeschen_passwort == benutzer[loeschen_name]:
+                del benutzer[loeschen_name]
+                print(f"Dein Account {loeschen_name} wurde gelöscht.")
+            else:
+                print("Falsches Passwort. Der Account wurde nicht gelöscht.")
         else:
-            print("Falsches Passwort. Der Account wurde nicht gelöscht.")
+            print("Dieser Benutzer wurde nicht gefunden. ")
     else:
-        print("Dieser Benutzer wurde nicht gefunden. ")
-else:
-    print("Alles klar. Dein Account wurde nicht gelöscht. ")
-        
+        print("Alles klar. Dein Account wurde nicht gelöscht. ")
+
+konto_loeschen(benutzer)
