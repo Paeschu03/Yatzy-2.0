@@ -1,6 +1,7 @@
 import login 
 import menues
 import dice
+import tutorial
 
 
 
