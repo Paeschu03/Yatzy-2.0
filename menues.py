@@ -6,3 +6,4 @@ def startausgabe():
     #B
     #spielen als Gast
     dice.start_wuerfel()
+    
