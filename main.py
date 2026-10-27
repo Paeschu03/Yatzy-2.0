@@ -9,23 +9,23 @@ import tutorial
 
 def test_startausgabe():
     #Wert aus der Startausgabe wird überprüft 
-    if user_anweser == "a":
+    if user_answer == "a":
         tutorial_durchführen = input("Möchtest du noch ein kurzes Tutorial durchführen? Ja/Nein")
 
         if tutorial_durchführen == "Ja":
             tutorial.start_tutorial
 
-        elif user_anweser == "Nein":
+        elif user_answer == "Nein":
             dice.start_wuerfel()
 
         else:
             print(tutorial_durchführen)
      
 
-    elif user_anweser == "b":
+    elif user_answer == "b":
         change_userdata.account_erstellen()
 
-    elif user_anweser == "c":
+    elif user_answer == "c":
             login.einloggen()
 
 
@@ -33,8 +33,8 @@ def test_startausgabe():
 #-------------------------START DES PROGRAMMES-------------------------#
 
 #Start der ersten Ausgabe
-user_anweser = menues.startausgabe() #gibt die Antwort der Startausgabe zurück
-test_startausgabe(user_anweser) #Überprüft die Antwort des Benutzer und leitet entsprechend weiter
+user_answer = menues.startausgabe() #gibt die Antwort der Startausgabe zurück
+test_startausgabe(user_answer) #Überprüft die Antwort des Benutzer und leitet entsprechend weiter
 
 
 print("JETZT BIST DU AM ENDE")

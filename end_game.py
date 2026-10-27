@@ -2,7 +2,7 @@
 # Gäste speichern keinen Spielstand
 # user ist der Benutzername, Gäste sind `None`
 # score sind die Punkte der Spielrunde
-# statistic ist das Dictionaryy mit den Punktelisten
+# statistic ist das Dictionary mit den Punktelisten
 
 def end_game(user, score, statistic):
     if user is None: 
