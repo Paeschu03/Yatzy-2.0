@@ -35,6 +35,8 @@ def test_startausgabe():
 #Start der ersten Ausgabe
 user_anweser = menues.startausgabe() #gibt die Antwort der Startausgabe zurück
 test_startausgabe(user_anweser) #Überprüft die Antwort des Benutzer und leitet entsprechend weiter
+
+
 print("JETZT BIST DU AM ENDE")
 
 
