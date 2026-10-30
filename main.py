@@ -15,7 +15,7 @@ def test_startausgabe():
         if tutorial_durchführen == "Ja":
             tutorial.start_tutorial
 
-        elif user_answer == "Nein":
+        elif user_answer == "Nein": # Müsste das nicht elif tutorial_durchführen sein? oder stimmt elif user_answer?
             dice.start_wuerfel()
 
         else:
@@ -26,7 +26,7 @@ def test_startausgabe():
         change_userdata.account_erstellen()
 
     elif user_answer == "c":
-            login.einloggen()
+        login.einloggen()
 
 
 
