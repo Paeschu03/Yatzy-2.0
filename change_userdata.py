@@ -12,6 +12,26 @@ def new_user():
     else:
         print("Oke. Dann legen wir dir kein neues Benutzerkonto an")
 
+
+def change_username_and_password():
+    veränderung_benutzer = input("Möchtest du dein Benutzername und Passwort ändern? ").strip().lower()
+    if veränderung_benutzer in ["ja", "j", "yes", "jo", "klar", "ju"]: # Hier wird sichergegangen dass der User seine Angaben verändern will
+        überprüfung_veränderung_benutzer = str(input("Gib bitte zuerst deinen alten Benutzername ein: ")).strip() # Damit auch der Richtige Benutzer geändert wird, Fragen wir nach Benutzername und Passwort
+        überprüfung_veränderung_passwort = str(input("Und jetzt bitte noch dein Passwort: ")).strip()
+        if überprüfung_veränderung_benutzer in benutzer and benutzer[überprüfung_veränderung_benutzer] == überprüfung_veränderung_passwort: #Bei dieser Line wird zuerst überprüft, ob der Benutzername vorhanden ist und danach ob das Passwort übereinstimmt
+            veränderter_benutzername = str(input("Bitte gib einen neuen Benutzername ein: ")).strip()
+            verändertes_passwort = str(input("Bitte gib ein neues Passwort ein: ")).strip()
+            benutzer[veränderter_benutzername] = verändertes_passwort # Hier sollte der alte Benutzername und das alte Passwort überschrieben werden.
+            print("Dein Benutzername und Passwort wurden erfolgreich gespeichert.")
+            
+        else:
+            print("Diese Kombination konnten wir leider nicht finden, probier es bitte nochmals.")
+            
+    else:
+        print("Dann wird nichts verändert.")
+
+
+
 def delete_user():
     loeschen_antwort = input("Möchtest du deinen Account wirklich löschen? ").strip().lower()
     if loeschen_antwort in ["ja", "j", "yes", "jo", "klar", "ju"]:
