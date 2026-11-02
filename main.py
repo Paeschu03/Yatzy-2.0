@@ -11,7 +11,7 @@ import game
 def check_anwser_startausgabe(user_anwser):
     #Wert aus der Startausgabe wird überprüft 
     if user_answer == "a":
-        tutorial_durchführen = input("Möchtest du noch ein kurzes Tutorial durchführen? Ja/Nein")
+        tutorial_durchführen = input("Möchtest du noch ein kurzes Tutorial durchführen? Ja/Nein: ")
 
         if tutorial_durchführen == "Ja":
             tutorial.start_tutorial()
