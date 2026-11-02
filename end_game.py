@@ -24,7 +24,7 @@ if __name__ == "__main__":
 
     # end_game("Pia", 120, statistic)
     
-    name = input("Mit welchem Benutzernamen spielst du? Bitte leer lassen und Enter drücken, wenn du als Gast spielst ").strip()
+    name = input("Mit welchem Benutzernamen spielst du? Bitte leer lassen und Enter drücken, wenn du als Gast spielen möchtest ").strip()
     if name == "":
         name = None 
     end_game(name, 100, statistic)

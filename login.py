@@ -17,3 +17,12 @@
 
 #Will er abbrechen, so kommt er von hier zum menues.py zur startausgabe zurück. 
 #test
+
+
+import pickle 
+loaded_user_data = {"anna": "1234", "ben": "geheim"}
+with open('userdata.pkl', 'wb') as userdata:
+    pickle.dump(loaded_user_data, userdata)
+
+     # with open('userdata.pkl', 'rb') as f:
+   # loaded_dict = pickle.load(f)
