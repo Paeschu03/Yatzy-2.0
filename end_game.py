@@ -4,11 +4,16 @@
 # score sind die Punkte der Spielrunde
 # statistic ist das Dictionary mit den Punktelisten
 
+from hilfsfunktionen import eingabe 
+
 def end_game(user, score, statistic):
     if user is None: 
         print("Als Gast wird kein Spielstand gespeichert")
     else:
-        answer = input("Möchtest du das Spiel speichern? ").strip().lower()
+        answer = eingabe("Möchtest du das Spiel speichern? ")
+        if answer is None:
+            return
+        answer = answer.strip().lower()
         if answer in ["ja", "j", "yes", "jo", "klar", "ju"]:
             if user not in statistic:
                 statistic[user] = []

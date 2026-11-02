@@ -5,13 +5,17 @@ import login
 import menues
 import tutorial
 import game
+import pickle
+from hilfsfunktionen import eingabe 
 
 #-------------------------DEKLARATION METHONEN UND VARIABELN-------------------------#
 
 def check_anwser_startausgabe(user_anwser):
     #Wert aus der Startausgabe wird überprüft 
     if user_answer == "a":
-        tutorial_durchführen = input("Möchtest du noch ein kurzes Tutorial durchführen? Ja/Nein: ")
+        tutorial_durchführen = eingabe("Möchtest du noch ein kurzes Tutorial durchführen? Ja/Nein: ")
+        if tutorial_durchführen is None:
+            return
 
         if tutorial_durchführen == "Ja":
             tutorial.start_tutorial()
@@ -34,8 +38,9 @@ def check_anwser_startausgabe(user_anwser):
 #-------------------------START DES PROGRAMMES-------------------------#
 
 #Willkommensausgabe
-user_answer = menues.startausgabe() #gibt die Antwort der Startausgabe zurück
-check_anwser_startausgabe(user_answer) #Überprüft die Antwort des Benutzer und leitet entsprechend weiter
+while True:
+    user_answer = menues.startausgabe() #gibt die Antwort der Startausgabe zurück
+    check_anwser_startausgabe(user_answer) #Überprüft die Antwort des Benutzer und leitet entsprechend weiter
 
 
 print("JETZT BIST DU AM ENDE")

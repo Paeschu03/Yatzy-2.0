@@ -1,20 +1,29 @@
+from hilfsfunktionen import eingabe
 
 import pickle 
 loaded_user_data = {"anna": "1234", "ben": "geheim"}
 with open('userdata.pkl', 'wb') as userdata:
-pickle.dump(loaded_user_data, userdata)
+    pickle.dump(loaded_user_data, userdata)
 
 with open('userdata.pkl', 'rb') as userdata:
    loaded_dict = pickle.load(userdata)
 
 
 
-def new_user():
-    neuer_benutzer = input("Möchtest du einen neuen Benutzer anlegen? ").strip().lower()
+def account_erstellen():
+    neuer_benutzer = eingabe("Möchtest du einen neuen Benutzer anlegen? ")
+    if neuer_benutzer is None:
+        return
+    neuer_benutzer = neuer_benutzer.strip().lower()
     if neuer_benutzer in ["ja", "j", "yes", "jo", "klar", "ju"]:
-        neuer_name = input("Oke. Dann gebe nun deinen gewünschten Benutzernamen ein: ").strip()
-        neues_passwort = input("Gebe nun ein Passwort ein: ")
-        benutzer[neuer_name] = neues_passwort
+        neuer_name = eingabe("Oke. Dann gebe nun deinen gewünschten Benutzernamen ein: ")
+        if neuer_name is None:
+            return
+        neuer_name = neuer_name.strip()
+        neues_passwort = eingabe("Gebe nun ein Passwort ein: ")
+        if neues_passwort is None:
+            return
+        loaded_dict[neuer_name] = neues_passwort
         print(f"Dein Benutzerkonto mit dem Benutzernamen {neuer_name} und dem Passwort {neues_passwort} wurden nun angelegt.")
         #print(benutzer)
     else:
@@ -43,11 +52,19 @@ def change_username_and_password():
         print("Dann wird nichts verändert.")
 
 def delete_user():
-    loeschen_antwort = input("Möchtest du deinen Account wirklich löschen? ").strip().lower()
+    loeschen_antwort = eingabe("Möchtest du deinen Account wirklich löschen? ")
+    if loeschen_antwort is None:
+        return
+    loeschen_antwort = loeschen_antwort.strip().lower()
     if loeschen_antwort in ["ja", "j", "yes", "jo", "klar", "ju"]:
-        loeschen_name = input("Alles klar. Welchen Account möchstest du löschen? ").strip()
+        loeschen_name = eingabe("Alles klar. Welchen Account möchstest du löschen? ")
+        if loeschen_name is None:
+            return
+        loeschen_name = loeschen_name.strip()
         if loeschen_name in benutzer:
-            loeschen_passwort = input("Gebe zur endgültigen Löschung dein Passwort ein: ")
+            loeschen_passwort = eingabe("Gebe zur endgültigen Löschung dein Passwort ein: ")
+            if loeschen_passwort is None:
+                return
             if loeschen_passwort == benutzer[loeschen_name]:
                 del benutzer[loeschen_name]
                 print(f"Dein Account {loeschen_name} wurde gelöscht.")
