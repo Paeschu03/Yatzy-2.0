@@ -47,4 +47,7 @@ def delete_user():
             print("Dieser Benutzer wurde nicht gefunden. ")
     else:
         print("Alles klar. Dein Account wurde nicht gelöscht. ")
-        
+
+def account_erstellen():
+    #hier noch Code einfügen - Pascal...
+    print("Hier wird der Account erstellt")

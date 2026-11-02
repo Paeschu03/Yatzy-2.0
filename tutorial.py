@@ -1,5 +1,5 @@
 def start_tutorial():
-    print("Du bist jetzt im Tutorial")
+    print("Herzlich Willkommen im Tutorial")
+    print("Das hier ist die zweite Zeile")
 
 
- #hier wird das Tutorial abgearbeitet. 

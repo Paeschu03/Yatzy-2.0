@@ -4,19 +4,20 @@ import end_game
 import login
 import menues
 import tutorial
+import game
 
 #-------------------------DEKLARATION METHONEN UND VARIABELN-------------------------#
 
-def test_startausgabe():
+def check_anwser_startausgabe(user_anwser):
     #Wert aus der Startausgabe wird überprüft 
     if user_answer == "a":
         tutorial_durchführen = input("Möchtest du noch ein kurzes Tutorial durchführen? Ja/Nein")
 
         if tutorial_durchführen == "Ja":
-            tutorial.start_tutorial
+            tutorial.start_tutorial()
 
-        elif user_answer == "Nein": # Müsste das nicht elif tutorial_durchführen sein? oder stimmt elif user_answer?
-            dice.start_wuerfel()
+        elif tutorial_durchführen == "Nein": # Müsste das nicht elif tutorial_durchführen sein? oder stimmt elif user_answer?
+            game.start_game()
 
         else:
             print(tutorial_durchführen)
@@ -32,9 +33,9 @@ def test_startausgabe():
 
 #-------------------------START DES PROGRAMMES-------------------------#
 
-#Start der ersten Ausgabe
+#Willkommensausgabe
 user_answer = menues.startausgabe() #gibt die Antwort der Startausgabe zurück
-test_startausgabe(user_answer) #Überprüft die Antwort des Benutzer und leitet entsprechend weiter
+check_anwser_startausgabe(user_answer) #Überprüft die Antwort des Benutzer und leitet entsprechend weiter
 
 
 print("JETZT BIST DU AM ENDE")
