@@ -1,8 +1,8 @@
 
 import pickle 
-# loaded_user_data = {"anna": "1234", "ben": "geheim"}
-# with open('userdata.pkl', 'wb') as userdata:
- #   pickle.dump(loaded_user_data, userdata)
+loaded_user_data = {"anna": "1234", "ben": "geheim"}
+with open('userdata.pkl', 'wb') as userdata:
+pickle.dump(loaded_user_data, userdata)
 
 with open('userdata.pkl', 'rb') as userdata:
    loaded_dict = pickle.load(userdata)
