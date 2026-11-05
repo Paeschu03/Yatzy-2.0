@@ -44,5 +44,5 @@ while True:
 
 
 print("JETZT BIST DU AM ENDE")
-
+clear
 
