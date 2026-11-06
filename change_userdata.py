@@ -33,13 +33,26 @@ def account_erstellen():
 def change_username_and_password():
     with open('userdata.pkl', 'rb') as userdata:
         loaded_dict = pickle.load(userdata)
-    veränderung_benutzer = input("Möchtest du dein Benutzername und Passwort ändern? ").strip().lower()
+    veränderung_benutzer = eingabe("Möchtest du dein Benutzername und Passwort ändern? ")
+    if veränderung_benutzer is None:
+        return
+    veränderung_benutzer = veränderung_benutzer.strip().lower()
     if veränderung_benutzer in ["ja", "j", "yes", "jo", "klar", "ju"]: # Hier wird sichergegangen dass der User seine Angaben verändern will
-        überprüfung_veränderung_benutzer = str(input("Gib bitte zuerst deinen alten Benutzername ein: ")).strip() # Damit auch der Richtige Benutzer geändert wird, Fragen wir nach Benutzername und Passwort
-        überprüfung_veränderung_passwort = str(input("Und jetzt bitte noch dein Passwort: ")).strip()
+        überprüfung_veränderung_benutzer = str(eingabe("Gib bitte zuerst deinen alten Benutzername ein: ")) # Damit auch der Richtige Benutzer geändert wird, Fragen wir nach Benutzername und Passwort
+        if überprüfung_veränderung_benutzer is None:
+            return
+        überprüfung_veränderung_passwort = str(eingabe("Und jetzt bitte noch dein Passwort: "))
+        if überprüfung_veränderung_passwort is None:
+            return
         if überprüfung_veränderung_benutzer in loaded_dict and loaded_dict[überprüfung_veränderung_benutzer] == überprüfung_veränderung_passwort: #Bei dieser Line wird zuerst überprüft, ob der Benutzername vorhanden ist und danach ob das Passwort übereinstimmt
-            veränderter_benutzername = str(input("Bitte gib einen neuen Benutzername ein: ")).strip()
-            verändertes_passwort = str(input("Bitte gib ein neues Passwort ein: ")).strip()
+            veränderter_benutzername = str(eingabe("Bitte gib einen neuen Benutzername ein: "))
+            if veränderter_benutzername is None:
+                return
+            veränderter_benutzername = veränderter_benutzername.strip().lower()
+            verändertes_passwort = str(eingabe("Bitte gib ein neues Passwort ein: "))
+            if verändertes_passwort is None:
+                return
+            verändertes_passwort = verändertes_passwort.strip().lower()
             loaded_dict[veränderter_benutzername] = verändertes_passwort # Hier sollte der alte Benutzername und das alte Passwort überschrieben werden.
             with open('userdata.pkl', 'ab') as userdata:
                 pickle.dump(loaded_dict, userdata)
