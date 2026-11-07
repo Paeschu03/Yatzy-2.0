@@ -4,25 +4,9 @@ import tutorial
 import change_userdata
 
 def startausgabe():
-    print("Herzlich willkommen zu unserem Yatzy, wie möchtest du vorgehen? ")
+    print("Willkommen bei unserem Spiel Yatzy!")
+    print("\n Test")
     aktion = input("(A) als Gast spielen, (B) Account erstellen oder (C) Einloggen: ").lower().strip()
 
-    if aktion == "a":
-        tutorial_durchführen = input("Möchtest du noch ein kurzes Tutorial durchführen? Ja/Nein")
+    return aktion
 
-        if tutorial_durchführen == "Ja":
-            tutorial.start_tutorial
-
-        elif aktion == "Nein":
-            dice.start_wuerfel()
-
-        else:
-            print(tutorial_durchführen)
-
-        
-
-    elif aktion == "b":
-        change_userdata.account_erstellen()
-
-    elif aktion == "c":
-        login.einloggen()
