@@ -9,7 +9,6 @@ with open('userdata.pkl', 'rb') as userdata:
    loaded_dict = pickle.load(userdata)
 
 
-
 def account_erstellen():
     neuer_benutzer = eingabe("Möchtest du einen neuen Benutzer anlegen? ")
     if neuer_benutzer is None:
