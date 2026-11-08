@@ -69,22 +69,24 @@ def wuerfel_anzeigen(wuerfel_liste, markiert):
             buchstaben_wuerfel = buchstaben_wuerfel + "    (" + buchstabe + ")    "
     print(buchstaben_wuerfel)
 
-
+print("Runde 1 von 3")
 wuerfel_anzeigen(wurf, "")
 
 #-------------------------DEFINITION ERSTELLT & WÜRFEL MIT BUCHSTABEN VERSEHEN-------------------------#
 
-behalten = input("Welche Würfel möchtest du behalten? (Eingabe mit Buchstaben oder Enter für keinen): ")
-behalten = behalten.upper()
-print(behalten)
-for platz in range(5):
-    buchstabe = "ABCDE"[platz]
-    if buchstabe in behalten:
-        print(buchstabe + " - wird behalten")
-    else:
-        print(buchstabe + " - wird neu geworfen")
-        wurf[platz] = random.randint(1, 6)
-wuerfel_anzeigen(wurf, behalten)
+for versuch in range(2):
+    behalten = input("Welche Würfel möchtest du behalten? (Eingabe mit Buchstaben oder Enter für keinen): ")
+    behalten = behalten.upper()
+    print(behalten)
+    for platz in range(5):
+        buchstabe = "ABCDE"[platz]
+        if buchstabe in behalten:
+            print(buchstabe + " - wird behalten")
+        else:
+            print(buchstabe + " - wird neu geworfen")
+            wurf[platz] = random.randint(1, 6)
+    print("Runde ", str(versuch + 2), " von 3")
+    wuerfel_anzeigen(wurf, behalten)
 
 
-#-------------------------WÜRFEL BEHALTEN & ANZEIGEN LASSEN -------------------------#
+#-------------------------WÜRFEL BEHALTEN & ANZEIGEN LASSEN MIT STERN MARKIERT -------------------------#
