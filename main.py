@@ -7,6 +7,7 @@ import tutorial
 import game
 import pickle
 from hilfsfunktionen import eingabe 
+import game_stats
 
 #-------------------------DEKLARATION METHONEN UND VARIABELN-------------------------#
 
