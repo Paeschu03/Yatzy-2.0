@@ -22,8 +22,10 @@ def startausgabe():
   #  aktion = eingabe("Deine Auswahl: ")
 
   #  if aktion is None:
- #       return None
-  #  return aktion.strip().lower()
+  #       return None
+  # aktion = aktion.strip()
+  # aktion = aktion.lower()
+  # return aktion
 
 #def eingeloggte_ausgabe(name):
    # print()
