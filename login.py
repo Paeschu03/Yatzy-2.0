@@ -47,4 +47,3 @@ def einloggen():
 
         print("Ungültiger Benutzername oder Passwort.")
         print("Bitte versuche es erneut.")
-

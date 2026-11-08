@@ -26,6 +26,9 @@ def check_anwser_startausgabe(user_anwser):
         else:
             print(tutorial_durchführen)
      
+    elif user_answer == "b":
+        change_userdata.account_erstellen()
+
     elif user_answer == "c":
         name = login.einloggen()
 
@@ -33,7 +36,6 @@ def check_anwser_startausgabe(user_anwser):
             return
 
         menues.eingeloggte_ausgabe(name)
-
 
 
 #-------------------------START DES PROGRAMMES-------------------------#
