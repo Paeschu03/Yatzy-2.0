@@ -26,13 +26,13 @@ def check_anwser_startausgabe(user_anwser):
         else:
             print(tutorial_durchführen)
      
-
     elif user_answer == "b":
         change_userdata.account_erstellen()
 
     elif user_answer == "c":
-        login.login()
+        login.einloggen()
 
+        menues.eingeloggte_ausgabe(name)
 
 
 #-------------------------START DES PROGRAMMES-------------------------#
