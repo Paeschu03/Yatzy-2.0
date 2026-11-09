@@ -38,6 +38,8 @@ def menue_mit_account():
         tutorial.start_tutorial()
     elif anwort_menue_mit_account == "e":
         change_userdata.delete_user()
+    elif anwort_menue_mit_account == "f":
+            exit()
     else:
         print("Diese Auswahl ist ungültig!")
         menue_mit_account()
