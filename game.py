@@ -4,6 +4,7 @@ import random
 
 def start_game():
     print("Runde 1 von 3")
+    wurf = wuerfel_werfen()
     wuerfel_anzeigen(wurf, "")
 
 
@@ -89,7 +90,7 @@ def wuerfe_behalten(wuerfel_liste):
         wuerfel_anzeigen(wuerfel_liste , behalten)
     return wuerfel_liste 
 
-#wurf = wuerfel_werfen()
+
 #wurf = wuerfe_behalten(wurf)
 
 
