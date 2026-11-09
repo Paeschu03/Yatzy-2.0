@@ -90,7 +90,7 @@ def start_tutorial():
     else:
         print("Nicht ganz – Full House ist die Summe: 2+2+5+5+5 = 19")
 
-    exit()
+    return
 
 
     
