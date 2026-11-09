@@ -32,7 +32,7 @@ def account_erstellen():
 def change_username_and_password():
     with open('userdata.pkl', 'rb') as userdata:
         loaded_dict = pickle.load(userdata)
-    veränderung_benutzer = eingabe("Möchtest du dein Benutzername und Passwort ändern? ")
+    veränderung_benutzer = eingabe("Möchtest du deinen Benutzernamen und Passwort ändern? ")
     if veränderung_benutzer is None:
         return
     veränderung_benutzer = veränderung_benutzer.strip().lower()
