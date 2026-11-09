@@ -12,7 +12,7 @@ def wuerfel_werfen():                           # Würfeln
         wuerfel.append(random.randint(1, 6))    # Würfel zwischen 1 - 6 
     return wuerfel                              # die Würfel werdebn wiedergegeben
 
-#wurf = wuerfel_werfen()
+wurf = wuerfel_werfen()
 # print(wurf)                                   wenn wir die Zahl der würfel sehen möchten
 
 #-------------------------5 WÜRFEL KÖNNEN GEWORFEN WERDEN-------------------------#
@@ -68,24 +68,28 @@ def wuerfel_anzeigen(wuerfel_liste, markiert):
             buchstaben_wuerfel = buchstaben_wuerfel + "    (" + buchstabe + ")    "
     print(buchstaben_wuerfel)
 
-#print("Runde 1 von 3")
-#wuerfel_anzeigen(wurf, "")
+print("Runde 1 von 3")
+wuerfel_anzeigen(wurf, "")
 
 #-------------------------DEFINITION ERSTELLT & WÜRFEL MIT BUCHSTABEN VERSEHEN-------------------------#
 
-for versuch in range(2):
-    behalten = input("Welche Würfel möchtest du behalten? (Eingabe mit Buchstaben oder Enter für keinen): ")
-    behalten = behalten.upper()
-    print(behalten)
-    for platz in range(5):
-        buchstabe = "ABCDE"[platz]
-        if buchstabe in behalten:
-            print(buchstabe + " - wird behalten")
-        else:
-            print(buchstabe + " - wird neu geworfen")
-            wurf[platz] = random.randint(1, 6)
-    print("Runde ", str(versuch + 2), " von 3")
-    wuerfel_anzeigen(wurf, behalten)
+def wuerfe_behalten(wuerfel_liste): 
+    for versuch in range(2):
+        behalten = input("Welche Würfel möchtest du behalten? (Eingabe mit Buchstaben oder Enter für keinen): ")
+        behalten = behalten.upper()
+        print(behalten)
+        for platz in range(5):
+            buchstabe = "ABCDE"[platz]
+            if buchstabe in behalten:
+                print(buchstabe + " - wird behalten")
+            else:
+                print(buchstabe + " - wird neu geworfen")
+                wuerfel_liste[platz] = random.randint(1, 6)
+        print("Runde ", str(versuch + 2), " von 3")
+        wuerfel_anzeigen(wuerfel_liste , behalten)
+    return wuerfel_liste 
+
+wurf = wuerfel_behalten(wurf)
 
 
 #-------------------------WÜRFEL BEHALTEN & ANZEIGEN LASSEN MIT STERN MARKIERT -------------------------#
