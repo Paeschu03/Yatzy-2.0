@@ -23,7 +23,7 @@ def menue_mit_account():
     print("(C) Runde spielen")
     print("(D) Tutorial")
     print("(E) Account löschen")
-    anwort_menue_mit_account = eingabe("Was möchtest du machen? A, B, C, D, oder E")
+    anwort_menue_mit_account = eingabe("Was möchtest du machen? A, B, C, D, oder E? ")
     if anwort_menue_mit_account is None:
         return
     anwort_menue_mit_account = anwort_menue_mit_account.strip().lower()
