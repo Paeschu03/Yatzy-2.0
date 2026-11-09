@@ -5,7 +5,6 @@ import random
 def start_game():
     print("Die Würfel sind gefallen...")
 
-start_game()
 
 def wuerfel_werfen():                             # Würfeln
     wuerfel = []                                 # leere Liste
