@@ -89,7 +89,7 @@ def wuerfe_behalten(wuerfel_liste):
         wuerfel_anzeigen(wuerfel_liste , behalten)
     return wuerfel_liste 
 
-wurf = wuerfel_behalten(wurf)
+wurf = wuerfe_behalten(wurf)
 
 
 #-------------------------WÜRFEL BEHALTEN & ANZEIGEN LASSEN MIT STERN MARKIERT -------------------------#
