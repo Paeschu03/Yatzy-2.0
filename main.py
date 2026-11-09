@@ -7,6 +7,7 @@ import tutorial
 import game
 import pickle
 from hilfsfunktionen import eingabe 
+import game_stats
 
 #-------------------------DEKLARATION METHONEN UND VARIABELN-------------------------#
 
@@ -30,10 +31,7 @@ def check_anwser_startausgabe(user_anwser):
         change_userdata.account_erstellen()
 
     elif user_answer == "c":
-        name = login.einloggen()
-
-        if name is None:
-            return
+        login.einloggen()
 
         menues.eingeloggte_ausgabe(name)
 

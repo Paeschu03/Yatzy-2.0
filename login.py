@@ -1,3 +1,5 @@
+import pickle 
+import menues
 #def einloggen(konten)
 # konten ist ein Dictionary: Benutzername -> Passwort.
 #while True:
@@ -17,33 +19,12 @@
 #test
 
 import pickle 
-from hilfsfunktionen import eingabe
 # loaded_user_data = {"anna": "1234", "ben": "geheim"}
 # with open('userdata.pkl', 'wb') as userdata:
  #   pickle.dump(loaded_user_data, userdata)
-def einloggen():
-    # Neu lesen, damit neu erstellte/geänderte Konten berücksichtigt werden.
-    with open("userdata.pkl", "rb") as userdata:
-        konten = pickle.load(userdata)
 
-    print()
-    print("Einloggen")
-    print("Mit X kommst du zurück zur Startausgabe zurück.")
-   
-    while True:
-        name = eingabe("Benutzername: ")
+with open('userdata.pkl', 'rb') as userdata:
+   loaded_dict = pickle.load(userdata)
 
-        if name is None:
-            return None
+print(loaded_dict)
 
-        name = name.strip()
-        passwort = eingabe("Passwort: ")
-
-        if passwort is None:
-            return None
-
-        if name in konten and konten[name] == passwort:
-            return name
-
-        print("Ungültiger Benutzername oder Passwort.")
-        print("Bitte versuche es erneut.")

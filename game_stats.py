@@ -2,7 +2,7 @@ from statistics import mean
 from hilfsfunktionen import eingabe
 
 def game_stats(*scores): # Das Sternchen vor "scores" bedeutet dass kein Limit an Werten bestimmt wurde, was hier benötigt wird weil sich die Werte ständig verändern
-    durchschnitt_aller_runden = mean(scores) # Mean ist im Deutschen der Median oder Umgangssprachlich der Durchschnitt
+    durchschnitt_aller_runden = mean(scores) # Mean ist im Deutschen der Durchschnitt
     höchste_punktzahl = max(scores)
     niedrigste_punktzahl = min(scores)
     zahl_der_durchgänge = len(scores)

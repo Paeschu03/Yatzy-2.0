@@ -7,9 +7,9 @@ def start_game():
 
 start_game()
 
-def wuerfel_werfen():                             # Würfeln
-    wuerfel = []                                 # leere Liste
-    for i in range (5):                          # 5x Würfeln
+def wuerfel_werfen():                           # Würfeln
+    wuerfel = []                                # leere Liste
+    for i in range (5):                         # 5x Würfeln
         wuerfel.append(random.randint(1, 6))    # Würfel zwischen 1 - 6 
     return wuerfel                              # die Würfel werdebn wiedergegeben
 
@@ -53,7 +53,7 @@ print(wurf)
 
 #-------------------------ALLE ZEILEN VON 5 WÜRFELN NEBENEINANDER WERDEN AUSGEGEBEN-------------------------#
 
-def wuerfel_anzeigen(wuerfel_liste):
+def wuerfel_anzeigen(wuerfel_liste, markiert):
     for nummer in range(5):
         zeile_text = ""
         for zahl in wuerfel_liste:
@@ -63,14 +63,30 @@ def wuerfel_anzeigen(wuerfel_liste):
         print(zeile_text)
     buchstaben_wuerfel = ""
     for buchstabe in "ABCDE":
-        buchstaben_wuerfel = buchstaben_wuerfel + "    (" + buchstabe + ")    "
+        if buchstabe in markiert:
+            buchstaben_wuerfel = buchstaben_wuerfel + "    (" + buchstabe + "*)   "
+        else:
+            buchstaben_wuerfel = buchstaben_wuerfel + "    (" + buchstabe + ")    "
     print(buchstaben_wuerfel)
 
-
-wuerfel_anzeigen(wurf)
+print("Runde 1 von 3")
+wuerfel_anzeigen(wurf, "")
 
 #-------------------------DEFINITION ERSTELLT & WÜRFEL MIT BUCHSTABEN VERSEHEN-------------------------#
 
-behalten = input("Welche Würfel möchtest du behalten? (Eingabe mit Buchstaben oder Enter für keinen): ")
-behalten = behalten.upper()
-print(behalten)
+for versuch in range(2):
+    behalten = input("Welche Würfel möchtest du behalten? (Eingabe mit Buchstaben oder Enter für keinen): ")
+    behalten = behalten.upper()
+    print(behalten)
+    for platz in range(5):
+        buchstabe = "ABCDE"[platz]
+        if buchstabe in behalten:
+            print(buchstabe + " - wird behalten")
+        else:
+            print(buchstabe + " - wird neu geworfen")
+            wurf[platz] = random.randint(1, 6)
+    print("Runde ", str(versuch + 2), " von 3")
+    wuerfel_anzeigen(wurf, behalten)
+
+
+#-------------------------WÜRFEL BEHALTEN & ANZEIGEN LASSEN MIT STERN MARKIERT -------------------------#
