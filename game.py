@@ -56,7 +56,7 @@ def wuerfel_anzeigen(wuerfel_liste, markiert):
     for nummer in range(5):
         zeile_text = ""
         for zahl in wuerfel_liste:
-            schluessel = ("würfel_" + str(zahl))
+            schluessel = ("wuerfel_" + str(zahl))
             bild = dice.wuerfel_design[schluessel]
             zeile_text = zeile_text + bild[nummer] + ""
         print(zeile_text)
