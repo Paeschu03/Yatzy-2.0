@@ -9,7 +9,7 @@ from x_abbrechen import eingabe
 #-------------------------DIE STARTAUSGABE WIRD AUSGEFÜHRT-------------------------#
 def startausgabe():
     print("Willkommen bei unserem Spiel Yatzy!")
-    print("\n Test")
+    
     aktion = input("(A) als Gast spielen, (B) Account erstellen oder (C) Einloggen: ").lower().strip()
 
     return aktion
