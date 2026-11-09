@@ -3,7 +3,7 @@ import random
 
 
 def start_game():
-    print("Runde 1 von 3")
+    #print("Runde 1 von 3")
     wurf = wuerfel_werfen()
     wuerfel_anzeigen(wurf, "")
 
@@ -59,7 +59,7 @@ def wuerfel_anzeigen(wuerfel_liste, markiert):
         zeile_text = ""
         for zahl in wuerfel_liste:
             schluessel = ("wuerfel_" + str(zahl))
-            bild = dice.würfel_design[schluessel]
+            bild = dice.wuerfel_design[schluessel]
             zeile_text = zeile_text + bild[nummer] + ""
         print(zeile_text)
     buchstaben_wuerfel = ""
