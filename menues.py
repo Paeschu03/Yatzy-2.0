@@ -5,7 +5,7 @@ import change_userdata
 import game_stats
 import main
 
-from hilfsfunktionen import eingabe
+from x_abbrechen import eingabe
 
 def startausgabe():
     print("Willkommen bei unserem Spiel Yatzy!")

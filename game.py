@@ -5,7 +5,6 @@ import random
 def start_game():
     print("Die Würfel sind gefallen...")
 
-start_game()
 
 def wuerfel_werfen():                           # Würfeln
     wuerfel = []                                # leere Liste
@@ -13,8 +12,8 @@ def wuerfel_werfen():                           # Würfeln
         wuerfel.append(random.randint(1, 6))    # Würfel zwischen 1 - 6 
     return wuerfel                              # die Würfel werdebn wiedergegeben
 
-wurf = wuerfel_werfen()
-print(wurf)
+#wurf = wuerfel_werfen()
+# print(wurf)                                   wenn wir die Zahl der würfel sehen möchten
 
 #-------------------------5 WÜRFEL KÖNNEN GEWORFEN WERDEN-------------------------#
 
@@ -69,8 +68,8 @@ def wuerfel_anzeigen(wuerfel_liste, markiert):
             buchstaben_wuerfel = buchstaben_wuerfel + "    (" + buchstabe + ")    "
     print(buchstaben_wuerfel)
 
-print("Runde 1 von 3")
-wuerfel_anzeigen(wurf, "")
+#print("Runde 1 von 3")
+#wuerfel_anzeigen(wurf, "")
 
 #-------------------------DEFINITION ERSTELLT & WÜRFEL MIT BUCHSTABEN VERSEHEN-------------------------#
 
