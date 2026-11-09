@@ -3,7 +3,8 @@ import random
 
 
 def start_game():
-    print("Die Würfel sind gefallen...")
+    print("Runde 1 von 3")
+    wuerfel_anzeigen(wurf, "")
 
 
 def wuerfel_werfen():                           # Würfeln
@@ -68,8 +69,7 @@ def wuerfel_anzeigen(wuerfel_liste, markiert):
             buchstaben_wuerfel = buchstaben_wuerfel + "    (" + buchstabe + ")    "
     print(buchstaben_wuerfel)
 
-print("Runde 1 von 3")
-wuerfel_anzeigen(wurf, "")
+
 
 #-------------------------DEFINITION ERSTELLT & WÜRFEL MIT BUCHSTABEN VERSEHEN-------------------------#
 
