@@ -13,8 +13,7 @@ def wuerfel_werfen():                           # Würfeln
         wuerfel.append(random.randint(1, 6))    # Würfel zwischen 1 - 6 
     return wuerfel                              # die Würfel werdebn wiedergegeben
 
-#wurf = wuerfel_werfen()
-# print(wurf)                                   wenn wir die Zahl der würfel sehen möchten
+
 
 #-------------------------5 WÜRFEL KÖNNEN GEWORFEN WERDEN-------------------------#
 
@@ -88,8 +87,8 @@ def wuerfe_behalten(wuerfel_liste):
         print("Runde ", str(versuch + 2), " von 3")
         wuerfel_anzeigen(wuerfel_liste , behalten)
     return wuerfel_liste 
-
-wurf = wuerfe_behalten(wurf)
+    
+    wurf = wuerfe_behalten(wurf)
 
 
 #-------------------------WÜRFEL BEHALTEN & ANZEIGEN LASSEN MIT STERN MARKIERT -------------------------#
