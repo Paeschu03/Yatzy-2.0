@@ -3,8 +3,7 @@ import random
 
 
 def start_game():
-    print("Runde 1 von 3")
-    wuerfel_anzeigen(wurf, "")
+    print("Die Würfel sind gefallen...")
 
 
 def wuerfel_werfen():                           # Würfeln
@@ -13,7 +12,8 @@ def wuerfel_werfen():                           # Würfeln
         wuerfel.append(random.randint(1, 6))    # Würfel zwischen 1 - 6 
     return wuerfel                              # die Würfel werdebn wiedergegeben
 
-
+wurf = wuerfel_werfen()
+# print(wurf)                                   wenn wir die Zahl der würfel sehen möchten
 
 #-------------------------5 WÜRFEL KÖNNEN GEWORFEN WERDEN-------------------------#
 
@@ -56,8 +56,8 @@ def wuerfel_anzeigen(wuerfel_liste, markiert):
     for nummer in range(5):
         zeile_text = ""
         for zahl in wuerfel_liste:
-            schluessel = ("wuerfel_" + str(zahl))
-            bild = dice.wuerfel_design[schluessel]
+            schluessel = ("würfel_" + str(zahl))
+            bild = dice.würfel_design[schluessel]
             zeile_text = zeile_text + bild[nummer] + ""
         print(zeile_text)
     buchstaben_wuerfel = ""
@@ -68,7 +68,8 @@ def wuerfel_anzeigen(wuerfel_liste, markiert):
             buchstaben_wuerfel = buchstaben_wuerfel + "    (" + buchstabe + ")    "
     print(buchstaben_wuerfel)
 
-
+print("Runde 1 von 3")
+wuerfel_anzeigen(wurf, "")
 
 #-------------------------DEFINITION ERSTELLT & WÜRFEL MIT BUCHSTABEN VERSEHEN-------------------------#
 
@@ -87,8 +88,9 @@ def wuerfe_behalten(wuerfel_liste):
         print("Runde ", str(versuch + 2), " von 3")
         wuerfel_anzeigen(wuerfel_liste , behalten)
     return wuerfel_liste 
-    
-    wurf = wuerfe_behalten(wurf)
+
+wurf = wuerfe_behalten(wurf)
+
 
 
 #-------------------------WÜRFEL BEHALTEN & ANZEIGEN LASSEN MIT STERN MARKIERT -------------------------#
