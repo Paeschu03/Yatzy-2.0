@@ -5,7 +5,6 @@ import random
 def start_game():
     print("Die Würfel sind gefallen...")
 
-start_game()
 
 def wuerfel_werfen():                           # Würfeln
     wuerfel = []                                # leere Liste
@@ -14,7 +13,7 @@ def wuerfel_werfen():                           # Würfeln
     return wuerfel                              # die Würfel werdebn wiedergegeben
 
 wurf = wuerfel_werfen()
-print(wurf)
+# print(wurf)                                   wenn wir die Zahl der würfel sehen möchten
 
 #-------------------------5 WÜRFEL KÖNNEN GEWORFEN WERDEN-------------------------#
 
@@ -58,7 +57,7 @@ def wuerfel_anzeigen(wuerfel_liste, markiert):
         zeile_text = ""
         for zahl in wuerfel_liste:
             schluessel = ("würfel_" + str(zahl))
-            bild = dice.würfel_design[schluessel]
+            bild = dice.wuerfel_design[schluessel]
             zeile_text = zeile_text + bild[nummer] + ""
         print(zeile_text)
     buchstaben_wuerfel = ""
@@ -74,19 +73,23 @@ wuerfel_anzeigen(wurf, "")
 
 #-------------------------DEFINITION ERSTELLT & WÜRFEL MIT BUCHSTABEN VERSEHEN-------------------------#
 
-for versuch in range(2):
-    behalten = input("Welche Würfel möchtest du behalten? (Eingabe mit Buchstaben oder Enter für keinen): ")
-    behalten = behalten.upper()
-    print(behalten)
-    for platz in range(5):
-        buchstabe = "ABCDE"[platz]
-        if buchstabe in behalten:
-            print(buchstabe + " - wird behalten")
-        else:
-            print(buchstabe + " - wird neu geworfen")
-            wurf[platz] = random.randint(1, 6)
-    print("Runde ", str(versuch + 2), " von 3")
-    wuerfel_anzeigen(wurf, behalten)
+def wuerfe_behalten(wuerfel_liste): 
+    for versuch in range(2):
+        behalten = input("Welche Würfel möchtest du behalten? (Eingabe mit Buchstaben oder Enter für keinen): ")
+        behalten = behalten.upper()
+        print(behalten)
+        for platz in range(5):
+            buchstabe = "ABCDE"[platz]
+            if buchstabe in behalten:
+                print(buchstabe + " - wird behalten")
+            else:
+                print(buchstabe + " - wird neu geworfen")
+                wuerfel_liste[platz] = random.randint(1, 6)
+        print("Runde ", str(versuch + 2), " von 3")
+        wuerfel_anzeigen(wuerfel_liste , behalten)
+    return wuerfel_liste 
+
+wurf = wuerfe_behalten(wurf)
 
 
 #-------------------------WÜRFEL BEHALTEN & ANZEIGEN LASSEN MIT STERN MARKIERT -------------------------#
