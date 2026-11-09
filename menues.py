@@ -28,7 +28,7 @@ def menue_mit_account():
         return
     anwort_menue_mit_account = anwort_menue_mit_account.strip().lower()
     if anwort_menue_mit_account == "a":
-        game_stats()
+        game_stats.game_stats()
     elif anwort_menue_mit_account == "b":
         change_userdata.change_username_and_password()
     elif anwort_menue_mit_account == "c":
