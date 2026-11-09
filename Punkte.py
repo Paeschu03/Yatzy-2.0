@@ -55,3 +55,21 @@ def punkte_berechnen(kategorie, wuerfel):
 
             if wuerfel.count(zahl) == 3:
                 drilling = True
+            if wuerfel.count(zahl) == 3:
+                drilling = True
+
+        if paar and drilling:
+            return sum(wuerfel)
+
+        return 0
+
+    elif kategorie == "Chance":
+        return sum(wuerfel)
+
+    elif kategorie == "Yatzy":
+        if wuerfel.count(wuerfel[0]) == 5:
+            return 50
+
+        return 0
+
+    return 0
