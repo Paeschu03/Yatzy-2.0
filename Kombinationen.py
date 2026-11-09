@@ -1,4 +1,4 @@
-from hilfsfunktionen import eingabe
+from x_abbrechen import eingabe
 
 KATEGORIEN = ["Einser", "Zweier", "Dreier", "Vierer", "Fünfer","Sechser", "Ein Paar", "Zwei Paare","Drilling","Vierling","Kleine Strasse", "Grosse Strasse", "Full House","Chance", "Yatzy"]
 
