@@ -3,7 +3,7 @@ import login
 import tutorial
 import change_userdata
 
-from hilfsfunktionen import eingabe
+from x_abbrechen import eingabe
 
 def startausgabe():
     print("Willkommen bei unserem Spiel Yatzy!")

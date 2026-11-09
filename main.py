@@ -6,7 +6,7 @@ import menues
 import tutorial
 import game
 import pickle
-from hilfsfunktionen import eingabe 
+from x_abbrechen import eingabe 
 import game_stats
 
 #-------------------------DEKLARATION METHONEN UND VARIABELN-------------------------#
