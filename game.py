@@ -14,7 +14,7 @@ def wuerfel_werfen():                           # Würfeln
     return wuerfel                              # die Würfel werdebn wiedergegeben
 
 wurf = wuerfel_werfen()
-print(wurf)
+# print(wurf)                                   wenn wir die Zahl der würfel sehen möchten
 
 #-------------------------5 WÜRFEL KÖNNEN GEWORFEN WERDEN-------------------------#
 
