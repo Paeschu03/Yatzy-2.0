@@ -1,9 +1,9 @@
 from x_abbrechen import eingabe
-
 import pickle 
-loaded_user_data = {"anna": "1234", "ben": "geheim"}
-with open('userdata.pkl', 'wb') as userdata:
-    pickle.dump(loaded_user_data, userdata)
+
+#loaded_user_data = {"anna": "1234", "ben": "geheim"}
+#with open('userdata.pkl', 'wb') as userdata:
+#    pickle.dump(loaded_user_data, userdata)
 
 with open('userdata.pkl', 'rb') as userdata:
    loaded_dict = pickle.load(userdata)
@@ -73,12 +73,12 @@ def delete_user():
         if loeschen_name is None:
             return
         loeschen_name = loeschen_name.strip()
-        if loeschen_name in benutzer:
+        if loeschen_name in loaded_dict:
             loeschen_passwort = eingabe("Gebe zur endgültigen Löschung dein Passwort ein: ")
             if loeschen_passwort is None:
                 return
-            if loeschen_passwort == benutzer[loeschen_name]:
-                del benutzer[loeschen_name]
+            if loeschen_passwort == loaded_dict[loeschen_name]:
+                del loaded_dict[loeschen_name]
                 print(f"Dein Account {loeschen_name} wurde gelöscht.")
             else:
                 print("Falsches Passwort. Der Account wurde nicht gelöscht.")
