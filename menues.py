@@ -6,7 +6,7 @@ import game_stats
 import game
 
 from x_abbrechen import eingabe
-
+#-------------------------DIE STARTAUSGABE WIRD AUSGEFÜHRT-------------------------#
 def startausgabe():
     print("Willkommen bei unserem Spiel Yatzy!")
     print("\n Test")
@@ -14,6 +14,8 @@ def startausgabe():
 
     return aktion
 
+
+#-------------------------DAS ACCOUNTMENUE WIRD ANGEZEIGT UND AUSGEFÜHRT-------------------------#
 def menue_mit_account():
     print("Dir stehen die folgenden Möglichkeiten offen:")
     print("(A) Statistik anzeigen")
