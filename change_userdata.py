@@ -1,5 +1,6 @@
 from x_abbrechen import eingabe
 import pickle 
+import menues
 
 #loaded_user_data = {"anna": "1234", "ben": "geheim"}
 #with open('userdata.pkl', 'wb') as userdata:
@@ -24,7 +25,7 @@ def account_erstellen():
             return
         loaded_dict[neuer_name] = neues_passwort
         print(f"Dein Benutzerkonto mit dem Benutzernamen {neuer_name} und dem Passwort {neues_passwort} wurden nun angelegt.")
-        #print(benutzer)
+        menues.menue_mit_account()
     else:
         print("Oke. Dann legen wir dir kein neues Benutzerkonto an")
 
