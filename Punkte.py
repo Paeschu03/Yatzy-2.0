@@ -55,8 +55,6 @@ def punkte_berechnen(kategorie, wuerfel):
 
             if wuerfel.count(zahl) == 3:
                 drilling = True
-            if wuerfel.count(zahl) == 3:
-                drilling = True
 
         if paar and drilling:
             return sum(wuerfel)
