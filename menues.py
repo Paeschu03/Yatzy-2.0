@@ -24,7 +24,7 @@ def menue_mit_account():
     print("(D) Tutorial")
     print("(E) Account löschen")
     print("(F) Spiel beenden")
-    anwort_menue_mit_account = eingabe("Was möchtest du machen? A, B, C, D, oder E? ")
+    anwort_menue_mit_account = eingabe("Was möchtest du machen? A, B, C, D, E oder F? ")
     if anwort_menue_mit_account is None:
         return
     anwort_menue_mit_account = anwort_menue_mit_account.strip().lower()
