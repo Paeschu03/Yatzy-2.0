@@ -1,5 +1,6 @@
 from x_abbrechen import eingabe
 import pickle 
+import menues
 
 #loaded_user_data = {"anna": "1234", "ben": "geheim"}
 #with open('userdata.pkl', 'wb') as userdata:
@@ -23,8 +24,10 @@ def account_erstellen():
         if neues_passwort is None:
             return
         loaded_dict[neuer_name] = neues_passwort
+        with open('userdata.pkl', 'wb') as datei:   # 'wb' = Datei komplett überschreiben        
+            pickle.dump(loaded_dict, datei)
         print(f"Dein Benutzerkonto mit dem Benutzernamen {neuer_name} und dem Passwort {neues_passwort} wurden nun angelegt.")
-        #print(benutzer)
+        menues.menue_mit_account()
     else:
         print("Oke. Dann legen wir dir kein neues Benutzerkonto an")
 
@@ -51,9 +54,10 @@ def change_username_and_password():
             verändertes_passwort = str(eingabe("Bitte gib ein neues Passwort ein: "))
             if verändertes_passwort is None:
                 return
-            verändertes_passwort = verändertes_passwort.strip().lower()
-            loaded_dict[veränderter_benutzername] = verändertes_passwort # Hier sollte der alte Benutzername und das alte Passwort überschrieben werden.
-            with open('userdata.pkl', 'ab') as userdata:
+            verändertes_passwort = verändertes_passwort.strip()
+            del loaded_dict[überprüfung_veränderung_benutzer]   # alten Benutzer entfernen
+            loaded_dict[veränderter_benutzername] = verändertes_passwort
+            with open('userdata.pkl', 'wb') as userdata:
                 pickle.dump(loaded_dict, userdata)
             print("Dein Benutzername und Passwort wurden erfolgreich gespeichert.")
             

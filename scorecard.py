@@ -1,8 +1,11 @@
 from x_abbrechen import eingabe
+#import game
 
 KATEGORIEN = ["Einser", "Zweier", "Dreier", "Vierer", "Fünfer","Sechser", "Ein Paar", "Zwei Paare","Drilling","Vierling","Kleine Strasse", "Grosse Strasse", "Full House","Chance", "Yatzy"]
 
 BUCHSTABEN = ["a", "b", "c", "d", "e","f", "g", "h", "i", "j", "k", "l", "m", "n", "o"]
+
+
 
 def neuer_spielzettel():
     spielzettel = {}
@@ -32,6 +35,7 @@ def kategorie_eintragen(spielzettel, wuerfel, auswahl):
             spielzettel[kategorie] = list(wuerfel)
             print("Du hast", kategorie, "ausgewählt.")
             uebersicht_anzeigen(spielzettel)
+            #game.start_game()
             return True
     print("Bitte einen Buchstaben von a bis o eingeben.")
     return False
