@@ -5,8 +5,10 @@ KATEGORIEN = ["Einser", "Zweier", "Dreier", "Vierer", "Fünfer","Sechser", "Ein 
 
 BUCHSTABEN = ["a", "b", "c", "d", "e","f", "g", "h", "i", "j", "k", "l", "m", "n", "o"]
 
+spielzettel = {}
+
 def neuer_spielzettel():
-    spielzettel = {}
+    
     for kategorie in KATEGORIEN:
         spielzettel[kategorie] = None
     return spielzettel
