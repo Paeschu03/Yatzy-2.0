@@ -6,12 +6,20 @@ runde = 0
 
 
 def start_game():
-    #print("Runde 1 von 3")
+    #Nur einmal pro Spielrunde erstelen 
     spielzettel = Kombinationen.neuer_spielzettel()
-    wurf = wuerfel_werfen()
-    wuerfel_anzeigen(wurf, "")
-    wurf = wuerfe_behalten(wurf)
-    Kombinationen.auswahl_nach_wurf(spielzettel, wurf, 3)
+
+    #Solange spielen, bis alle Kombis belegt sind
+    while None in spielzettel.values():
+        wurf = wuerfel_werfen()
+        wuerfel_anzeigen(wurf, "")
+        wurf = wuerfe_behalten(wurf)
+        ergebnis = Kombinationen.auswahl_nach_wurf(spielzettel, wurf, 3)
+        if ergebnis is None: 
+            return spielzettel
+
+    print("Alle Kombinationen sind belegt")
+    return spielzettel
 
 def wuerfel_werfen():                           # Würfeln
     wuerfel = []                                # leere Liste
