@@ -2,6 +2,8 @@ import dice
 import random
 import Kombinationen
 
+runde = 0
+
 
 def start_game():
     #print("Runde 1 von 3")
