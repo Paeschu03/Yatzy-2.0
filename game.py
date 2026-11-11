@@ -1,12 +1,15 @@
 import dice
 import random
+import Kombinationen
 
 
 def start_game():
     #print("Runde 1 von 3")
+    spielzettel = Kombinationen.neuer_spielzettel()
     wurf = wuerfel_werfen()
     wuerfel_anzeigen(wurf, "")
     wurf = wuerfe_behalten(wurf)
+    Kombinationen.auswahl_nach_wurf(spielzettel, wurf, 3)
 
 def wuerfel_werfen():                           # Würfeln
     wuerfel = []                                # leere Liste
