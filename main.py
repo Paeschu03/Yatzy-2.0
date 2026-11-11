@@ -19,10 +19,11 @@ def check_anwser_startausgabe(user_anwser):
         if tutorial_durchführen is None:
             return
 
-        if tutorial_durchführen == "Ja":
+        tutorial_durchführen = tutorial_durchführen.strip().lower()
+        if tutorial_durchführen == "ja":
             tutorial.start_tutorial()
 
-        elif tutorial_durchführen == "Nein": # Müsste das nicht elif tutorial_durchführen sein? oder stimmt elif user_answer?
+        elif tutorial_durchführen == "nein": 
             game.start_game()
 
                 
@@ -31,6 +32,9 @@ def check_anwser_startausgabe(user_anwser):
 
     elif user_answer == "c":
         login.login()
+
+    elif user_answer == "d":
+        exit()
 
         #menues.eingeloggte_ausgabe(name)
 
