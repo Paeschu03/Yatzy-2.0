@@ -6,7 +6,7 @@ def start_game():
     #print("Runde 1 von 3")
     wurf = wuerfel_werfen()
     wuerfel_anzeigen(wurf, "")
-
+    wurf = wuerfe_behalten(wurf)
 
 def wuerfel_werfen():                           # Würfeln
     wuerfel = []                                # leere Liste
@@ -91,7 +91,7 @@ def wuerfe_behalten(wuerfel_liste):
     return wuerfel_liste 
 
 
-#wurf = wuerfe_behalten(wurf)
+
 
 
 
