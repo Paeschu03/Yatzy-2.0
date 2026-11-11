@@ -19,10 +19,11 @@ def check_anwser_startausgabe(user_anwser):
         if tutorial_durchführen is None:
             return
 
-        if tutorial_durchführen == "Ja":
+        tutorial_durchführen = tutorial_durchführen.strip().lower()
+        if tutorial_durchführen == "ja":
             tutorial.start_tutorial()
 
-        elif tutorial_durchführen == "Nein": 
+        elif tutorial_durchführen == "nein": 
             game.start_game()
 
                 
