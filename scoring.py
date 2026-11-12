@@ -1,5 +1,5 @@
 def punkte_berechnen(kategorie, wuerfel):
-    zahlen = ( "Einser": 1, "Zweier": 2, "Dreier": 3, "Vierer": 4, "Fünfer": 5, "Sechser": 6 )
+    zahlen = { "Einser": 1, "Zweier": 2, "Dreier": 3, "Vierer": 4, "Fünfer": 5, "Sechser": 6 }
 
     if kategorie in zahlen:
         zahl = zahlen[kategorie]
