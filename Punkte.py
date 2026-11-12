@@ -3,13 +3,17 @@ def punkte_berechnen(kategorie, wuerfel):
 
     if kategorie in zahlen:
         zahl = zahlen[kategorie]
-        return wuerfel.count(zahl) * zahl
+        punkte = wuerfel.count(zahl) * zahl
+        print(punkte)
+        return 
+        #wuerfel.count(zahl) * zahl
 
     elif kategorie == "Ein Paar":
         punkte = 0
         for zahl in range(1, 7):
             if wuerfel.count(zahl) >= 2:
                 punkte = zahl * 2
+                print(punkte)
         return punkte
     
     elif kategorie == "Zwei Paare":
