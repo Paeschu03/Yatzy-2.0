@@ -13,7 +13,7 @@ import game_stats
 #------------------------------------------------------------------------------------#
 #-------------------------DEKLARATION METHONEN UND VARIABELN-------------------------#
 #------------------------------------------------------------------------------------#
-def check_anwser_startausgabe(user_anwser):
+def check_answer_startausgabe(user_answer):
     if user_answer == "a":
         tutorial_durchführen = eingabe("Möchtest du noch ein kurzes Tutorial durchführen? Ja/Nein: ")
         if tutorial_durchführen is None:
@@ -46,7 +46,7 @@ def check_anwser_startausgabe(user_anwser):
 #Willkommensausgabe
 #while True:
 user_answer = menues.startausgabe() #gibt die Antwort der Startausgabe zurück
-check_anwser_startausgabe(user_answer) #Überprüft die Antwort des Benutzer und leitet entsprechend weiter
+check_answer_startausgabe(user_answer) #Überprüft die Antwort des Benutzer und leitet entsprechend weiter
 
 
 
