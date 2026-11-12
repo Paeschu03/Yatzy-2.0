@@ -40,12 +40,12 @@ def punkte_berechnen(kategorie, wuerfel):
         return 0
 
     elif kategorie == "Kleine Strasse":
-        if sorted(wuerfel) == [1, 2, 3, 4, 5]:
+        if sorted(wuerfel) == [1, 2, 3, 4] or  [2, 3, 4, 5] or [3, 4, 5, 6]:
             return 15
         return 0
 
     elif kategorie == "Grosse Strasse":
-        if sorted(wuerfel) == [2, 3, 4, 5, 6]:
+        if sorted(wuerfel) == [1, 2, 3, 4, 5,] or [2, 3, 4, 5, 6]:
             return 20
         return 0
 
