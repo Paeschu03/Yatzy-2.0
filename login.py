@@ -8,7 +8,7 @@ import menues
 
 
 def login():
-
+   #Die gespeicherten Benutzernamen und Passwörter werden geladen.
    with open('userdata.pkl', 'rb') as userdata:
       aktuelle_benutzerliste = pickle.load(userdata)
       print("Login:", userdata)
