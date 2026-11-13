@@ -1,20 +1,20 @@
 import dice
 import random
-import Kombinationen
+import scorecard
 
 runde = 0
 
 
 def start_game():
     #Nur einmal pro Spielrunde erstelen 
-    spielzettel = Kombinationen.neuer_spielzettel()
+    spielzettel = scorecard.neuer_spielzettel()
 
     #Solange spielen, bis alle Kombis belegt sind
     while None in spielzettel.values():
         wurf = wuerfel_werfen()
         wuerfel_anzeigen(wurf, "")
         wurf = wuerfe_behalten(wurf)
-        ergebnis = Kombinationen.auswahl_nach_wurf(spielzettel, wurf, 3)
+        ergebnis = scorecard.auswahl_nach_wurf(spielzettel, wurf, 3)
         if ergebnis is None: 
             return spielzettel
 
