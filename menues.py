@@ -27,7 +27,7 @@ def startausgabe():
 
 #-------------------------DAS ACCOUNTMENUE WIRD ANGEZEIGT UND AUSGEFÜHRT-------------------------#
 def menue_mit_account():
-    print("Dir stehen die folgenden Möglichkeiten offen:")
+    print("\nDir stehen die folgenden Möglichkeiten offen:")
     print("(A) Statistik anzeigen")
     print("(B) Benutzername und Passwort ändern")
     print("(C) Runde spielen")
