@@ -8,6 +8,7 @@ import game
 from x_abbrechen import eingabe
 #-------------------------DIE STARTAUSGABE WIRD AUSGEFÜHRT-------------------------#
 def startausgabe():
+    '''Erstellt von Anna'''
     print("🎲 🎲 🎲 🎲 🎲 Y-A-T-Z-Y 🎲 🎲 🎲 🎲 🎲")
     print("\nWillkommen bei unserem Yatzy Würfelspiel!")
     print("\nEs gibt noch zwei kleine Sachen zu erklären bevor es losgehen kann.")
@@ -27,6 +28,7 @@ def startausgabe():
 
 #-------------------------DAS ACCOUNTMENUE WIRD ANGEZEIGT UND AUSGEFÜHRT-------------------------#
 def menue_mit_account():
+    '''Erstellt von Anna'''
     print("\nDir stehen die folgenden Möglichkeiten offen:")
     print("(A) Statistik anzeigen")
     print("(B) Benutzername und Passwort ändern")
