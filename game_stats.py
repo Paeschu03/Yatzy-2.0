@@ -1,17 +1,44 @@
+import pickle
 from statistics import mean
-from x_abbrechen import eingabe
+import menues
 
 #-------------------------DIE GAMESTATISTIK BEI EINGELOGGTEN SPIELERN WIRD ANGEZEIGT-------------------------#
-def game_stats(*scores): # Das Sternchen vor "scores" bedeutet dass kein Limit an Werten bestimmt wurde, was hier benötigt wird weil sich die Werte ständig verändern
-    durchschnitt_aller_runden = mean(scores) # Mean ist im Deutschen der Durchschnitt
-    höchste_punktzahl = max(scores)
-    niedrigste_punktzahl = min(scores)
-    zahl_der_durchgänge = len(scores)
-    print(f"Du hast bereits {zahl_der_durchgänge} Runden gespielt.")
-    print(f"Dein Highlight lag bei {höchste_punktzahl} Punkten, gratuliere!")
-    print(f"Der niedrigste Wert deiner Runden ist {niedrigste_punktzahl} Punkte, schade!")
-    print(f"Der Durchschnitt deiner Runden beträgt {durchschnitt_aller_runden:.0f} Punkte.")
 
-    # Wie soll ich hier die hilfsfunktion implementieren?
-    # Scores ist ein Platzhalter der je nach Dilaras Variabelnamen geändert werden muss
-    
+player_stats = {                             # Das sind vorgespeicherte Daten, damit wir bei der Präsentation die Statistik zeigen können
+    "pia": [611, 530, 326, 403, 540, 489],
+    "anna": [503, 621, 303, 487, 522, 380],
+    "pascal": [550, 498, 320, 603, 500],
+    "dilara": [500, 340, 476, 607, 401],
+    "selina" : []
+}
+
+
+with open('player_stats.pkl', 'wb') as file: # Hier speichern wir die Daten, um sie später aufrufen zu können
+    pickle.dump(player_stats, file)
+
+def game_stats(player_stats):
+    '''Erstellt von Anna'''
+    with open('player_stats.pkl', 'rb') as file: # Hier werden die gespeicherten Daten aufgerufen
+        player_stats = pickle.load(file)
+
+
+        for player, scores in player_stats.items(): # Statistiken pro Spieler werden berechnet
+            if not scores:  # Falls keine Runden gespielt wurden
+                print("Du hast noch keine Runden gespielt.")
+                continue
+
+            highest_score = max(scores)
+            lowest_score = min(scores)
+            average_score = mean(scores)
+            played_rounds = len(scores)
+
+            print(f"Deine Statistik sieht so aus:")
+            print(f"- Gespielte Runden: {played_rounds}")
+            print(f"- Höchste Punktzahl: {highest_score} Punkte")
+            print(f"- Niedrigste Punktzahl: {lowest_score} Punkte")
+            print(f"- Durchschnitt: {average_score:.0f} Punkte")
+            input("\n[Enter drücken, wenn du parat bist um zurück zum Menu zu kommen]")
+            menues.menue_mit_account()
+
+# Diese Game Statistik arbeitet erst mit den Beispielwerten von player_stats. Ich bin mir noch sehr unsicher, wie wir die tatsächlichen Werte 
+# einspeisen können
