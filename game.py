@@ -8,6 +8,9 @@ runde = 0
 def start_game():
     #Nur einmal pro Spielrunde erstelen 
     spielzettel = scorecard.neuer_spielzettel()
+    print()
+    print("---- SPIEL BEGINNT ----")
+    print()
 
     #Solange spielen, bis alle Kombis belegt sind
     while None in spielzettel.values():
