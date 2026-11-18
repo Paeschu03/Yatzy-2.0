@@ -2,7 +2,7 @@ import change_userdata
 import dice
 import end_game
 import login
-import menues
+import menus
 import tutorial
 import game
 import pickle
@@ -45,7 +45,7 @@ def check_answer_startausgabe(user_answer):
 
 #Willkommensausgabe
 #while True:
-user_answer = menues.startausgabe() #gibt die Antwort der Startausgabe zurück
+user_answer = menus.startausgabe() #gibt die Antwort der Startausgabe zurück
 check_answer_startausgabe(user_answer) #Überprüft die Antwort des Benutzer und leitet entsprechend weiter
 
 

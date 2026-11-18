@@ -1,5 +1,5 @@
 import pickle 
-import menues
+import menus
 
 # loaded_user_data = {"anna": "1234", "ben": "geheim"}
 # with open('userdata.pkl', 'wb') as userdata:
@@ -22,7 +22,7 @@ def login():
       if nochmals == "Ja":
          login()
       if nochmals != "Nein":
-         menues.startausgabe
+         menus.startausgabe
 
    if aktuelle_benutzerliste[benutzer] != passwort: 
       print("Falsches Passwort")
@@ -30,6 +30,6 @@ def login():
 
    if aktuelle_benutzerliste[benutzer] == passwort: 
       print("Sie sind erfolgreich eingeloggt")
-      menues.menue_mit_account()
+      menus.menue_mit_account()
 
 
