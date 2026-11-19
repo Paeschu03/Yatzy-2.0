@@ -1,6 +1,6 @@
 import pickle
 from statistics import mean
-import menues
+import menus
 
 #-------------------------DIE GAMESTATISTIK BEI EINGELOGGTEN SPIELERN WIRD ANGEZEIGT-------------------------#
 

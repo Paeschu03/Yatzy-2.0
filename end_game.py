@@ -6,7 +6,7 @@
 
 from input_handling import eingabe 
 
-def end_game(user, score, statistic):
+def end_game(user, score, statistics):
     if user is None: 
         print("Als Gast wird kein Spielstand gespeichert")
     else:
@@ -15,22 +15,23 @@ def end_game(user, score, statistic):
             return
         answer = answer.strip().lower()
         if answer in ["ja", "j", "yes", "jo", "klar", "ju"]:
-            if user not in statistic:
-                statistic[user] = []
-            statistic[user].append(score)
+            if user not in statistics:
+                statistics[user] = []
+            statistics[user].append(score)
             print("Dein Spielstand wurde erfolgreich gespeichert.")
         else:
             print("Dein Spielstand wurde nicht gespeichert.")
 
+#eventuell lieber if username ==...
 if __name__ == "__main__":
-    statistic = {"Pia": [180], "Anna": [210]}
+    statistics = {"Pia": [180], "Anna": [210]}
 
     # end_game(None, 250, statistic)
 
     # end_game("Pia", 120, statistic)
     
-    name = input("Mit welchem Benutzernamen spielst du? Bitte leer lassen und Enter drücken, wenn du als Gast spielen möchtest ").strip()
-    if name == "":
-        name = None 
-    end_game(name, 100, statistic)
-    print(statistic)
+    username = input("Mit welchem Benutzernamen spielst du? Bitte leer lassen und Enter drücken, wenn du als Gast spielen möchtest ").strip()
+    if username == "":
+        username = None 
+    end_game(username, 100, statistics)
+    print(statistics)
