@@ -5,7 +5,7 @@ import change_userdata
 import game_stats
 import game
 
-from x_abbrechen import eingabe
+from input_handling import eingabe
 #-------------------------DIE STARTAUSGABE WIRD AUSGEFÜHRT-------------------------#
 def startausgabe():
     print("🎲 🎲 🎲 🎲 🎲 Y-A-T-Z-Y 🎲 🎲 🎲 🎲 🎲")

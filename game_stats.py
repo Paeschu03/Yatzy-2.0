@@ -1,5 +1,5 @@
 from statistics import mean
-from x_abbrechen import eingabe
+from input_handling import eingabe
 
 #-------------------------DIE GAMESTATISTIK BEI EINGELOGGTEN SPIELERN WIRD ANGEZEIGT-------------------------#
 def game_stats(*scores): # Das Sternchen vor "scores" bedeutet dass kein Limit an Werten bestimmt wurde, was hier benötigt wird weil sich die Werte ständig verändern

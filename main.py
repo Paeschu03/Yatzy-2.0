@@ -6,7 +6,7 @@ import menus
 import tutorial
 import game
 import pickle
-from x_abbrechen import eingabe 
+from input_handling import eingabe 
 import game_stats
 
 

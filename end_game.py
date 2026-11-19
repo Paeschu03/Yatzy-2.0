@@ -4,7 +4,7 @@
 # score sind die Punkte der Spielrunde
 # statistic ist das Dictionary mit den Punktelisten
 
-from x_abbrechen import eingabe 
+from input_handling import eingabe 
 
 def end_game(user, score, statistic):
     if user is None: 
