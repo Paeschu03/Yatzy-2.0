@@ -2,27 +2,27 @@ import dice
 import random
 import scorecard
 
-runde = 0
+round_number = 0
 
 
 def start_game():
     #Nur einmal pro Spielrunde erstelen 
-    spielzettel = scorecard.neuer_spielzettel()
+    scorecard = scorecard.create_scorecard()
     print()
     print("---- SPIEL BEGINNT ----")
     print()
 
     #Solange spielen, bis alle Kombis belegt sind
-    while None in spielzettel.values():
+    while None in scorecard.values():
         wurf = wuerfel_werfen()
         wuerfel_anzeigen(wurf, "")
         wurf = wuerfe_behalten(wurf)
-        ergebnis = scorecard.auswahl_nach_wurf(spielzettel, wurf, 3)
+        ergebnis = scorecard.auswahl_nach_wurf(scorecard, wurf, 3)
         if ergebnis is None: 
-            return spielzettel
+            return scorecard
 
     print("Alle Kombinationen sind belegt")
-    return spielzettel
+    return scorecard
 
 def wuerfel_werfen():                           # Würfeln
     wuerfel = []                                # leere Liste
