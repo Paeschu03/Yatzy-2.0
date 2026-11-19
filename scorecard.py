@@ -16,11 +16,9 @@ def create_scorecard():
 
 def display_scorecard(scorecard):
     print("Übersicht der Kombinationen:")
-
     for index in range(len(CATEGORIES)):
         category = CATEGORIES[index]
         letter = LETTERS[index]
-
         if scorecard[category] is None:
             print(letter, "-", category, "- offen")
         else:
@@ -34,18 +32,18 @@ def record_category(scorecard, wuerfel, auswahl):
                 print("Diese Kombination ist bereits belegt.")
                 return False
             # Eine Kopie der Würfelwerte für diese Kategorie speichern.
-            spielzettel[kategorie] = list(wuerfel)
-            print("Du hast", kategorie, "ausgewählt.")
-            display_scorecard(spielzettel)
+            scorecard[category] = list(wuerfel)
+            print("Du hast", category, "ausgewählt.")
+            display_scorecard(scorecard)
             #game.start_game()
             return True
     print("Bitte einen Buchstaben von a bis o eingeben.")
     return False
 
-def select_category_after_roll(spielzettel, wuerfel, wurfnummer):
+def select_category_after_roll(scorecard, wuerfel, wurfnummer):
     print("Wurf", wurfnummer, "von 3")
     print("Deine Würfel:", wuerfel)
-    display_scorecard(spielzettel)
+    display_scorecard(scorecard)
     while True:
         if wurfnummer < 3:
             print("W = weiterwürfeln")
@@ -60,7 +58,6 @@ def select_category_after_roll(spielzettel, wuerfel, wurfnummer):
                 return "weiter"
             print("Nach dem dritten Wurf kannst du nicht weiterwürfeln.")
         else:
-            erfolgreich = record_category(
-                spielzettel, wuerfel, auswahl )
+            erfolgreich = record_category(scorecard, wuerfel, auswahl )
             if erfolgreich:
                 return "eingetragen"

@@ -10,23 +10,23 @@ with open('userdata.pkl', 'rb') as userdata:
    loaded_dict = pickle.load(userdata)
 
 
-def account_erstellen():
-    neuer_benutzer = eingabe("Möchtest du einen neuen Benutzer anlegen? ")
-    if neuer_benutzer is None:
+def create_account():
+    create_new_user = eingabe("Möchtest du einen neuen Benutzer anlegen? ")
+    if create_new_user is None:
         return
-    neuer_benutzer = neuer_benutzer.strip().lower()
-    if neuer_benutzer in ["ja", "j", "yes", "jo", "klar", "ju"]:
-        neuer_name = eingabe("Oke. Dann gebe nun deinen gewünschten Benutzernamen ein: ")
-        if neuer_name is None:
+    create_new_user = create_new_user.strip().lower()
+    if create_new_user in ["ja", "j", "yes", "jo", "klar", "ju"]:
+        new_username = eingabe("Oke. Dann gebe nun deinen gewünschten Benutzernamen ein: ")
+        if new_username is None:
             return
-        neuer_name = neuer_name.strip()
-        neues_passwort = eingabe("Gebe nun ein Passwort ein: ")
-        if neues_passwort is None:
+        new_username = new_username.strip()
+        new_password = eingabe("Gebe nun ein Passwort ein: ")
+        if new_password is None:
             return
-        loaded_dict[neuer_name] = neues_passwort
+        loaded_dict[new_username] = new_password
         with open('userdata.pkl', 'wb') as datei:   # 'wb' = Datei komplett überschreiben        
             pickle.dump(loaded_dict, datei)
-        print(f"Dein Benutzerkonto mit dem Benutzernamen {neuer_name} und dem Passwort {neues_passwort} wurden nun angelegt.")
+        print(f"Dein Benutzerkonto mit dem Benutzernamen {new_username} und dem Passwort {new_password} wurden nun angelegt.")
         menus.menue_mit_account()
     else:
         print("Oke. Dann legen wir dir kein neues Benutzerkonto an")
