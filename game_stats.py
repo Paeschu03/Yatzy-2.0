@@ -38,7 +38,7 @@ def game_stats(player_stats):
             print(f"- Niedrigste Punktzahl: {lowest_score} Punkte")
             print(f"- Durchschnitt: {average_score:.0f} Punkte")
             input("\n[Enter drücken, wenn du parat bist um zurück zum Menu zu kommen]")
-            menues.menue_mit_account()
+            menus.show_account_menu()
 
 # Diese Game Statistik arbeitet erst mit den Beispielwerten von player_stats. Ich bin mir noch sehr unsicher, wie wir die tatsächlichen Werte 
 # einspeisen können
