@@ -36,6 +36,12 @@ def check_answer_startausgabe(user_answer):
     elif user_answer == "d":
         exit()
 
+    elif user_answer != 'a' or user_answer != 'b' or user_answer != 'c' or user_answer != 'd':
+        print("Eingabe trifft auch keine Menüoption")
+        user_answer = menues.startausgabe()
+        check_answer_startausgabe(user_answer)
+    
+
         #menues.eingeloggte_ausgabe(name)
 
 
@@ -45,7 +51,8 @@ def check_answer_startausgabe(user_answer):
 
 #Willkommensausgabe
 #while True:
-user_answer = menus.startausgabe() #gibt die Antwort der Startausgabe zurück
+menues.programmerklärung()
+user_answer = menues.startausgabe() #gibt die Antwort der Startausgabe zurück
 check_answer_startausgabe(user_answer) #Überprüft die Antwort des Benutzer und leitet entsprechend weiter
 
 

@@ -33,6 +33,7 @@ def create_account():
 
 
 def change_username_and_password():
+    '''Erstellt von Anna'''
     with open('userdata.pkl', 'rb') as userdata:
         loaded_dict = pickle.load(userdata)
     veränderung_benutzer = eingabe("Möchtest du deinen Benutzernamen und Passwort ändern? ")

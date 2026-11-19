@@ -14,6 +14,10 @@ def startausgabe():
     print("1. Du bedienst das Spiel nur mit Buchstaben, die Zahlen gehören zum Gameplay.")
     print("2. Du kannst bei jeder Eingabe mit x und anschliessend Enter zurück zur Startausgabe, falls du's dir anders überlegst.")
     input("\n[Enter drücken, wenn du parat bist um weiter zu machen]")
+    return
+
+def startausgabe():
+    print("\033[H\033[2J\033[3J", end="")
     print("\nDu kannst zwischen den folgenden Optionen auswählen:")
     print("(A) als Gast spielen")
     print("(B) Account erstellen")
@@ -27,7 +31,8 @@ def startausgabe():
 
 #-------------------------DAS ACCOUNTMENUE WIRD ANGEZEIGT UND AUSGEFÜHRT-------------------------#
 def menue_mit_account():
-    print("Dir stehen die folgenden Möglichkeiten offen:")
+    '''Erstellt von Anna'''
+    print("\nDir stehen die folgenden Möglichkeiten offen:")
     print("(A) Statistik anzeigen")
     print("(B) Benutzername und Passwort ändern")
     print("(C) Runde spielen")
