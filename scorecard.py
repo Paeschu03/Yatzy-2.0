@@ -14,22 +14,23 @@ def create_scorecard():
 
     return scorecard
 
-def display_scorecard(spielzettel):
+def display_scorecard(scorecard):
     print("Übersicht der Kombinationen:")
-    for index in range(len(KATEGORIEN)):
-        kategorie = KATEGORIEN[index]
-        buchstabe = BUCHSTABEN[index]
 
-        if spielzettel[kategorie] is None:
-            print(buchstabe, "-", kategorie, "- offen")
+    for index in range(len(CATEGORIES)):
+        category = CATEGORIES[index]
+        letter = LETTERS[index]
+
+        if scorecard[category] is None:
+            print(letter, "-", category, "- offen")
         else:
-            print(buchstabe, "-", kategorie, "- belegt")
-
-def record_category(spielzettel, wuerfel, auswahl):
-    for index in range(len(BUCHSTABEN)):
-        if auswahl == BUCHSTABEN[index]:
-            kategorie = KATEGORIEN[index]
-            if spielzettel[kategorie] is not None:
+            print(letter, "-", category, "- belegt")
+            
+def record_category(scorecard, wuerfel, auswahl):
+    for index in range(len(LETTERS)):
+        if auswahl == LETTERS[index]:
+            category = CATEGORIES[index]
+            if scorecard[category] is not None:
                 print("Diese Kombination ist bereits belegt.")
                 return False
             # Eine Kopie der Würfelwerte für diese Kategorie speichern.
