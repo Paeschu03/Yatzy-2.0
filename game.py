@@ -14,21 +14,21 @@ def start_game():
 
     #Solange spielen, bis alle Kombis belegt sind
     while None in scorecard.values():
-        wurf = wuerfel_werfen()
-        wuerfel_anzeigen(wurf, "")
-        wurf = wuerfe_behalten(wurf)
-        ergebnis = scorecard.auswahl_nach_wurf(scorecard, wurf, 3)
-        if ergebnis is None: 
+        throw = roll_dice()
+        show_dice(throw, "")
+        throw = keep_dice(throw)
+        result = scorecard.choice_after_roll(scorecard, throw, 3)
+        if result is None: 
             return scorecard
 
     print("Alle Kombinationen sind belegt")
     return scorecard
 
-def wuerfel_werfen():                           # Würfeln
-    wuerfel = []                                # leere Liste
+def roll_dice():                           # Würfeln
+    dice = []                                # leere Liste
     for i in range (5):                         # 5x Würfeln
-        wuerfel.append(random.randint(1, 6))    # Würfel zwischen 1 - 6 
-    return wuerfel                              # die Würfel werdebn wiedergegeben
+        dice.append(random.randint(1, 6))    # Würfel zwischen 1 - 6 
+    return dice                              # die Würfel werdebn wiedergegeben
 
 
 # print(wurf)                                   wenn wir die Zahl der würfel sehen möchten
@@ -70,21 +70,21 @@ def wuerfel_werfen():                           # Würfeln
 
 #-------------------------ALLE ZEILEN VON 5 WÜRFELN NEBENEINANDER WERDEN AUSGEGEBEN-------------------------#
 
-def wuerfel_anzeigen(wuerfel_liste, markiert):
-    for nummer in range(5):
-        zeile_text = ""
-        for zahl in wuerfel_liste:
-            schluessel = ("wuerfel_" + str(zahl))
-            bild = dice.wuerfel_design[schluessel]
-            zeile_text = zeile_text + bild[nummer] + ""
-        print(zeile_text)
-    buchstaben_wuerfel = ""
-    for buchstabe in "ABCDE":
-        if buchstabe in markiert:
-            buchstaben_wuerfel = buchstaben_wuerfel + "    (" + buchstabe + "*)   "
+def show_dice(dice_list, marked):
+    for number in range(5):
+        row_text = ""
+        for number in dice_list:
+            key = ("dice_" + str(number))
+            image = dice.dice_design[key]
+            row_text = row_text + image[number] + ""
+        print(row_text)
+    letters_dice = ""
+    for letter in "ABCDE":
+        if letter in marked:
+            letters_dice = letters_dice + "    (" + letter + "*)   "
         else:
-            buchstaben_wuerfel = buchstaben_wuerfel + "    (" + buchstabe + ")    "
-    print(buchstaben_wuerfel)
+            letters_dice = letters_dice + "    (" + letter + ")    "
+    print(letters_dice)
 
 
 
