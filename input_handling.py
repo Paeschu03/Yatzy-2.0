@@ -1,8 +1,8 @@
-def eingabe(text):
-    abbrechen = input(text)
-    if abbrechen.strip().lower() == "x":
+def get_input(text):
+    cancel = input(text)
+    if cancel.strip().lower() == "x":
         return None
-    return abbrechen
+    return cancel
 
 if __name__ == "__main__":
-    print(eingabe("Test: "))
+    print(get_input("Test: "))

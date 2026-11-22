@@ -90,21 +90,21 @@ def show_dice(dice_list, marked):
 
 #-------------------------DEFINITION ERSTELLT & WÜRFEL MIT BUCHSTABEN VERSEHEN-------------------------#
 
-def wuerfe_behalten(wuerfel_liste): 
-    for versuch in range(2):
-        behalten = input("Welche Würfel möchtest du behalten? (Eingabe mit Buchstaben oder Enter für keinen): ")
-        behalten = behalten.upper()
-        print(behalten)
-        for platz in range(5):
-            buchstabe = "ABCDE"[platz]
-            if buchstabe in behalten:
-                print(buchstabe + " - wird behalten")
+def keep_dice(dice_list): 
+    for attempt in range(2):
+        dice_to_keep = input("Welche Würfel möchtest du behalten? (Eingabe mit Buchstaben oder Enter für keinen): ")
+        dice_to_keep = dice_to_keep.upper()
+        print(dice_to_keep)
+        for index in range(5):
+            letter = "ABCDE"[index]
+            if letter in dice_to_keep:
+                print(letter + " - wird behalten")
             else:
-                print(buchstabe + " - wird neu geworfen")
-                wuerfel_liste[platz] = random.randint(1, 6)
-        print("Runde ", str(versuch + 2), " von 3")
-        wuerfel_anzeigen(wuerfel_liste , behalten)
-    return wuerfel_liste 
+                print(letter + " - wird neu geworfen")
+                dice_list[index] = random.randint(1, 6)
+        print("Runde ", str(attempt + 2), " von 3")
+        show_dice(dice_list, dice_to_keep)
+    return dice_list 
 
 
 
