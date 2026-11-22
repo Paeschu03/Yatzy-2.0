@@ -6,29 +6,29 @@ import menus
 import tutorial
 import game
 import pickle
-from input_handling import eingabe 
+from input_handling import get_input
 import game_stats
 
 
 #------------------------------------------------------------------------------------#
 #-------------------------DEKLARATION METHONEN UND VARIABELN-------------------------#
 #------------------------------------------------------------------------------------#
-def check_answer_startausgabe(user_answer):
+def check_start_menu_answer(user_answer):
     if user_answer == "a":
-        tutorial_durchführen = eingabe("Möchtest du noch ein kurzes Tutorial durchführen? Ja/Nein: ")
-        if tutorial_durchführen is None:
+        tutorial_choice = get_input("Möchtest du noch ein kurzes Tutorial durchführen? Ja/Nein: ")
+        if tutorial_choice is None:
             return
 
-        tutorial_durchführen = tutorial_durchführen.strip().lower()
-        if tutorial_durchführen == "ja":
+        tutorial_choice = tutorial_choice.strip().lower()
+        if tutorial_choice == "ja":
             tutorial.start_tutorial()
 
-        elif tutorial_durchführen == "nein": 
+        elif tutorial_choice == "nein": 
             game.start_game()
 
                 
     elif user_answer == "b":
-        change_userdata.account_erstellen()
+        change_userdata.create_account()
 
     elif user_answer == "c":
         login.login()
