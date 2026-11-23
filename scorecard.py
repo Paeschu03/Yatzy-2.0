@@ -1,4 +1,4 @@
-from input_handling import eingabe
+from input_handling import get_input
 #import game
 
 CATEGORIES = ["Einser", "Zweier", "Dreier", "Vierer", "Fünfer","Sechser", "Ein Paar", "Zwei Paare","Drilling","Vierling","Kleine Strasse", "Grosse Strasse", "Full House","Chance", "Yatzy"]
@@ -14,7 +14,7 @@ def create_scorecard():
 
     return scorecard
 
-def display_scorecard(scorecard):
+def show_scorecard(scorecard):
     print("Übersicht der Kombinationen:")
     for index in range(len(CATEGORIES)):
         category = CATEGORIES[index]
@@ -24,40 +24,40 @@ def display_scorecard(scorecard):
         else:
             print(letter, "-", category, "- belegt")
             
-def record_category(scorecard, wuerfel, auswahl):
+def record_category(scorecard, dice, choice):
     for index in range(len(LETTERS)):
-        if auswahl == LETTERS[index]:
+        if choice == LETTERS[index]:
             category = CATEGORIES[index]
             if scorecard[category] is not None:
                 print("Diese Kombination ist bereits belegt.")
                 return False
             # Eine Kopie der Würfelwerte für diese Kategorie speichern.
-            scorecard[category] = list(wuerfel)
+            scorecard[category] = list(dice)
             print("Du hast", category, "ausgewählt.")
-            display_scorecard(scorecard)
+            show_scorecard(scorecard)
             #game.start_game()
             return True
     print("Bitte einen Buchstaben von a bis o eingeben.")
     return False
 
-def select_category_after_roll(scorecard, wuerfel, wurfnummer):
-    print("Wurf", wurfnummer, "von 3")
-    print("Deine Würfel:", wuerfel)
-    display_scorecard(scorecard)
+def select_category_after_roll(scorecard, dice, throw_number):
+    print("Wurf", throw_number, "von 3")
+    print("Deine Würfel:", dice)
+    show_scorecard(scorecard)
     while True:
-        if wurfnummer < 3:
+        if throw_number < 3:
             print("W = weiterwürfeln")
         else:
             print("Dritter Wurf: Wähle eine offene Kombination.")
-        auswahl = eingabe( "Kombination a bis o wählen (X = Startausgabe): "  )
-        if auswahl is None:
+        choice = get_input( "Kombination a bis o wählen (X = Startausgabe): "  )
+        if choice is None:
             return None
-        auswahl = auswahl.strip().lower()
-        if auswahl == "w":
-            if wurfnummer < 3:
+        choice = choice.strip().lower()
+        if choice == "w":
+            if throw_number < 3:
                 return "weiter"
             print("Nach dem dritten Wurf kannst du nicht weiterwürfeln.")
         else:
-            erfolgreich = record_category(scorecard, wuerfel, auswahl )
-            if erfolgreich:
+            successful = record_category(scorecard, dice, choice )
+            if successful:
                 return "eingetragen"

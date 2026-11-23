@@ -1,75 +1,75 @@
-def punkte_berechnen(kategorie, wuerfel):
-    zahlen = { "Einser": 1, "Zweier": 2, "Dreier": 3, "Vierer": 4, "Fünfer": 5, "Sechser": 6 }
+def calculate_points(category, dice):
+    number = { "Einser": 1, "Zweier": 2, "Dreier": 3, "Vierer": 4, "Fünfer": 5, "Sechser": 6 }
 
-    if kategorie in zahlen:
-        zahl = zahlen[kategorie]
-        punkte = wuerfel.count(zahl) * zahl
-        print(punkte)
+    if category in number:
+        number = numbers[category]
+        points = dice.count(number) * number
+        print(points)
         return 
-        #wuerfel.count(zahl) * zahl
+        #dice.count(zahl) * zahl
 
-    elif kategorie == "Ein Paar":
-        punkte = 0
-        for zahl in range(1, 7):
-            if wuerfel.count(zahl) >= 2:
-                punkte = zahl * 2
-                print(punkte)
-        return punkte
+    elif category == "Ein Paar":
+        points = 0
+        for number in range(1, 7):
+            if dice.count(number) >= 2:
+                points = number * 2
+                print(points)
+        return points
     
-    elif kategorie == "Zwei Paare":
-        paare = []
-        for zahl in range(1, 7):
-            if wuerfel.count(zahl) >= 2:
-                paare.append(zahl)
-        if len(paare) == 2:
-            return sum(paare) * 2
+    elif category == "Zwei Paare":
+        pairs = []
+        for number in range(1, 7):
+            if dice.count(number) >= 2:
+                pairs.append(number)
+        if len(pairs) == 2:
+            return sum(pairs) * 2
         
         return 0
     
-    elif kategorie == "Drilling":
-        for zahl in range(1, 7):
-            if wuerfel.count(zahl) >= 3:
-                return zahl * 3
+    elif category == "Drilling":
+        for number in range(1, 7):
+            if dice.count(number) >= 3:
+                return number * 3
             
         return 0
 
-    elif kategorie == "Vierling":
-        for zahl in range(1, 7):
-            if wuerfel.count(zahl) >= 4:
-                return zahl * 4
+    elif category == "Vierling":
+        for number in range(1, 7):
+            if dice.count(number) >= 4:
+                return number * 4
         return 0
 
-    elif kategorie == "Kleine Strasse":
-        if sorted(wuerfel) == [1, 2, 3, 4] or  [2, 3, 4, 5] or [3, 4, 5, 6]:
+    elif category == "Kleine Strasse":
+        if sorted(dice) == [1, 2, 3, 4] or  [2, 3, 4, 5] or [3, 4, 5, 6]:
             return 15
         return 0
 
-    elif kategorie == "Grosse Strasse":
-        if sorted(wuerfel) == [1, 2, 3, 4, 5,] or [2, 3, 4, 5, 6]:
+    elif category == "Grosse Strasse":
+        if sorted(dice) == [1, 2, 3, 4, 5,] or [2, 3, 4, 5, 6]:
             return 20
         return 0
 
-    elif kategorie == "Full House":
-        paar = False
-        drilling = False
+    elif category == "Full House":
+        pair = False
+        triple = False
 
-        for zahl in range(1, 7):
-            if wuerfel.count(zahl) == 2:
-                paar = True
+        for number in range(1, 7):
+            if dice.count(number) == 2:
+                pair = True
 
-            if wuerfel.count(zahl) == 3:
-                drilling = True
+            if dice.count(number) == 3:
+                triple = True
 
-        if paar and drilling:
-            return sum(wuerfel)
+        if pair and triple:
+            return sum(dice)
 
         return 0
 
-    elif kategorie == "Chance":
-        return sum(wuerfel)
+    elif category == "Chance":
+        return sum(dice)
 
-    elif kategorie == "Yatzy":
-        if wuerfel.count(wuerfel[0]) == 5:
+    elif category == "Yatzy":
+        if dice.count(dice[0]) == 5:
             return 50
 
         return 0
