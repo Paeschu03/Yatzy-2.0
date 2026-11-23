@@ -27,7 +27,7 @@ def create_account():
         with open('userdata.pkl', 'wb') as datei:   # 'wb' = Datei komplett überschreiben        
             pickle.dump(loaded_dict, datei)
         print(f"Dein Benutzerkonto mit dem Benutzernamen {new_username} und dem Passwort {new_password} wurden nun angelegt.")
-        menus.menue_mit_account()
+        menus.show_account_menu()
     else:
         print("Oke. Dann legen wir dir kein neues Benutzerkonto an")
 
