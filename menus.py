@@ -5,9 +5,9 @@ import change_userdata
 import game_stats
 import game
 
-from input_handling import eingabe
+from input_handling import get_input
 #-------------------------DIE STARTAUSGABE WIRD AUSGEFÜHRT-------------------------#
-def startausgabe():
+def show_start_menu():
     print("🎲 🎲 🎲 🎲 🎲 Y-A-T-Z-Y 🎲 🎲 🎲 🎲 🎲")
     print("\nWillkommen bei unserem Yatzy Würfelspiel!")
     print("\nEs gibt noch zwei kleine Sachen zu erklären bevor es losgehen kann.")
@@ -16,7 +16,7 @@ def startausgabe():
     input("\n[Enter drücken, wenn du parat bist um weiter zu machen]")
     return
 
-def startausgabe():
+def show_start_menu():
     print("\033[H\033[2J\033[3J", end="")
     print("\nDu kannst zwischen den folgenden Optionen auswählen:")
     print("(A) als Gast spielen")
@@ -24,13 +24,13 @@ def startausgabe():
     print("(C) Einloggen")
     print("(D) Spiel schliessen")
     
-    aktion = input("Welche Option möchtest du wählen A, B, C oder D? ").lower().strip()
+    action = input("Welche Option möchtest du wählen A, B, C oder D? ").lower().strip()
 
-    return aktion
+    return action
 
 
 #-------------------------DAS ACCOUNTMENUE WIRD ANGEZEIGT UND AUSGEFÜHRT-------------------------#
-def menue_mit_account():
+def show_account_menu():
     '''Erstellt von Anna'''
     print("\nDir stehen die folgenden Möglichkeiten offen:")
     print("(A) Statistik anzeigen")
@@ -39,25 +39,25 @@ def menue_mit_account():
     print("(D) Tutorial")
     print("(E) Account löschen")
     print("(F) Spiel beenden")
-    anwort_menue_mit_account = eingabe("Was möchtest du machen? A, B, C, D, E oder F? ")
-    if anwort_menue_mit_account is None:
+    account_menu_answer = get_input("Was möchtest du machen? A, B, C, D, E oder F? ")
+    if account_menu_answer is None:
         return
-    anwort_menue_mit_account = anwort_menue_mit_account.strip().lower()
-    if anwort_menue_mit_account == "a":
+    account_menu_answer = account_menu_answer.strip().lower()
+    if account_menu_answer == "a":
         game_stats.game_stats()
-    elif anwort_menue_mit_account == "b":
+    elif account_menu_answer == "b":
         change_userdata.change_username_and_password()
-    elif anwort_menue_mit_account == "c":
+    elif account_menu_answer == "c":
         game.start_game()
-    elif anwort_menue_mit_account == "d":
+    elif account_menu_answer == "d":
         tutorial.start_tutorial()
-    elif anwort_menue_mit_account == "e":
+    elif account_menu_answer == "e":
         change_userdata.delete_user()
-    elif anwort_menue_mit_account == "f":
+    elif account_menu_answer == "f":
             exit()
     else:
         print("Diese Auswahl ist ungültig!")
-        menue_mit_account()
+        show_account_menu()
 
         
 
