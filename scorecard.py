@@ -1,4 +1,5 @@
 from input_handling import get_input
+from scoring import calculate_points
 #import game
 
 CATEGORIES = ["Einser", "Zweier", "Dreier", "Vierer", "Fünfer","Sechser", "Ein Paar", "Zwei Paare","Drilling","Vierling","Kleine Strasse", "Grosse Strasse", "Full House","Chance", "Yatzy"]
@@ -22,8 +23,15 @@ def show_scorecard(scorecard):
         if scorecard[category] is None:
             print(letter, "-", category, "- offen")
         else:
-            print(letter, "-", category, "- belegt")
-            
+            print(letter, "-", category, "-", scorecard[category], "Punkte")
+#Gesamtpunktzahl berechnen
+    total_points = 0
+    for category in CATEGORIES:
+        if scorecard[category] is not None:
+            total_points += scorecard[category]
+    print("Gesamtpunktzahl:", total_points, "Punkte")
+
+
 def record_category(scorecard, dice, choice):
     for index in range(len(LETTERS)):
         if choice == LETTERS[index]:
