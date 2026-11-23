@@ -7,22 +7,22 @@ round_number = 0
 
 def start_game():
     #Nur einmal pro Spielrunde erstelen 
-    scorecard = scorecard.create_scorecard()
+    new_scorecard = scorecard.create_scorecard()
     print()
     print("---- SPIEL BEGINNT ----")
     print()
 
     #Solange spielen, bis alle Kombis belegt sind
-    while None in scorecard.values():
+    while None in new_scorecard.values():
         throw = roll_dice()
         show_dice(throw, "")
         throw = keep_dice(throw)
-        result = scorecard.choice_after_roll(scorecard, throw, 3)
+        result = scorecard.select_category_after_roll(new_scorecard, throw, 3)
         if result is None: 
-            return scorecard
+            return new_scorecard
 
     print("Alle Kombinationen sind belegt")
-    return scorecard
+    return new_scorecard
 
 def roll_dice():                           # Würfeln
     dice = []                                # leere Liste
@@ -71,12 +71,12 @@ def roll_dice():                           # Würfeln
 #-------------------------ALLE ZEILEN VON 5 WÜRFELN NEBENEINANDER WERDEN AUSGEGEBEN-------------------------#
 
 def show_dice(dice_list, marked):
-    for number in range(5):
+    for row in range(5):
         row_text = ""
         for number in dice_list:
             key = ("dice_" + str(number))
             image = dice.dice_design[key]
-            row_text = row_text + image[number] + ""
+            row_text = row_text + image[row] + ""
         print(row_text)
     letters_dice = ""
     for letter in "ABCDE":

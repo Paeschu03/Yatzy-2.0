@@ -21,15 +21,16 @@ def login():
       nochmals = input("Verschrieben? Ja / Nein ")
       if nochmals == "Ja":
          login()
-      if nochmals != "Nein":
-         menus.startausgabe
-
+      if nochmals == "Nein":
+         menus.show_start_menu()
+   print(current_user_list)
    if current_user_list[username] != password: 
-      print("Falsches Passwort")
+      print("Falscher Benutzername oder Falsches Passwort")
+      login()
       return
 
    if current_user_list[username] == password: 
       print("Sie sind erfolgreich eingeloggt")
-      menus.menue_mit_account()
+      menus.show_account_menu()
 
 
