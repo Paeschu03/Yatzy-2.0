@@ -44,7 +44,7 @@ def show_account_menu():
         return
     account_menu_answer = account_menu_answer.strip().lower()
     if account_menu_answer == "a":
-        game_stats.game_stats()
+        game_stats.calculate_stats('pia')
     elif account_menu_answer == "b":
         user_management.change_username_and_password()
     elif account_menu_answer == "c":
