@@ -1,5 +1,5 @@
 def calculate_points(category, dice):
-    number = { "Einser": 1, "Zweier": 2, "Dreier": 3, "Vierer": 4, "Fünfer": 5, "Sechser": 6 }
+    numbers = { "Einser": 1, "Zweier": 2, "Dreier": 3, "Vierer": 4, "Fünfer": 5, "Sechser": 6 }
 
     if category in number:
         number = numbers[category]

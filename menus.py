@@ -1,7 +1,7 @@
 import dice 
 import login
 import tutorial
-import change_userdata
+import user_management
 import game_stats
 import game
 
