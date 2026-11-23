@@ -1,13 +1,13 @@
 import dice 
 import login
 import tutorial
-import change_userdata
+import user_management
 import game_stats
 import game
 
 from input_handling import get_input
 #-------------------------DIE STARTAUSGABE WIRD AUSGEFÜHRT-------------------------#
-def show_start_menu():
+def show_program_explanation():
     print("🎲 🎲 🎲 🎲 🎲 Y-A-T-Z-Y 🎲 🎲 🎲 🎲 🎲")
     print("\nWillkommen bei unserem Yatzy Würfelspiel!")
     print("\nEs gibt noch zwei kleine Sachen zu erklären bevor es losgehen kann.")
@@ -46,13 +46,13 @@ def show_account_menu():
     if account_menu_answer == "a":
         game_stats.game_stats()
     elif account_menu_answer == "b":
-        change_userdata.change_username_and_password()
+        user_management.change_username_and_password()
     elif account_menu_answer == "c":
         game.start_game()
     elif account_menu_answer == "d":
         tutorial.start_tutorial()
     elif account_menu_answer == "e":
-        change_userdata.delete_user()
+        user_management.delete_user()
     elif account_menu_answer == "f":
             exit()
     else:

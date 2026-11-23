@@ -28,7 +28,7 @@ def check_start_menu_answer(user_answer):
 
                 
     elif user_answer == "b":
-        change_userdata.create_account()
+        user_management.create_account()
 
     elif user_answer == "c":
         login.login()
