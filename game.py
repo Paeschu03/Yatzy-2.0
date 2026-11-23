@@ -6,13 +6,13 @@ round_number = 0
 
 
 def start_game():
-    #Nur einmal pro Spielrunde erstelen 
+    ''' Erstellt von Pia '''
     new_scorecard = scorecard.create_scorecard()
     print()
     print("---- SPIEL BEGINNT ----")
     print()
 
-    #Solange spielen, bis alle Kombis belegt sind
+    #Solange spielen, bis alle Kombinationen belegt sind
     while None in new_scorecard.values():
         throw = roll_dice()
         show_dice(throw, "")
@@ -24,9 +24,10 @@ def start_game():
     print("Alle Kombinationen sind belegt")
     return new_scorecard
 
-def roll_dice():                           # Würfeln
+def roll_dice():                             # Würfeln
+    ''' Erstellt von Pia '''
     dice = []                                # leere Liste
-    for i in range (5):                         # 5x Würfeln
+    for i in range (5):                      # 5x Würfeln
         dice.append(random.randint(1, 6))    # Würfel zwischen 1 - 6 
     return dice                              # die Würfel werdebn wiedergegeben
 
@@ -71,6 +72,7 @@ def roll_dice():                           # Würfeln
 #-------------------------ALLE ZEILEN VON 5 WÜRFELN NEBENEINANDER WERDEN AUSGEGEBEN-------------------------#
 
 def show_dice(dice_list, marked):
+    ''' Erstellt von Pia '''
     for row in range(5):
         row_text = ""
         for number in dice_list:
@@ -91,6 +93,7 @@ def show_dice(dice_list, marked):
 #-------------------------DEFINITION ERSTELLT & WÜRFEL MIT BUCHSTABEN VERSEHEN-------------------------#
 
 def keep_dice(dice_list): 
+    ''' Erstellt von Pia '''
     for attempt in range(2):
         dice_to_keep = input("Welche Würfel möchtest du behalten? (Eingabe mit Buchstaben oder Enter für keinen): ")
         dice_to_keep = dice_to_keep.upper()

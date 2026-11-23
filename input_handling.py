@@ -1,4 +1,5 @@
 def get_input(text):
+    ''' Erstellt von Pia '''
     cancel = input(text)
     if cancel.strip().lower() == "x":
         return None
