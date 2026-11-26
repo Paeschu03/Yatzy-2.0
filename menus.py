@@ -33,9 +33,9 @@ def show_start_menu():
 def show_account_menu():
     '''Erstellt von Anna'''
     print("\nDir stehen die folgenden Möglichkeiten offen:")
-    print("(A) Statistik anzeigen")
+    print("(A) Spiel starten")
     print("(B) Benutzername und Passwort ändern")
-    print("(C) Runde spielen")
+    print("(C) Statistik anzeigen")
     print("(D) Tutorial")
     print("(E) Account löschen")
     print("(F) Spiel beenden")
@@ -43,11 +43,11 @@ def show_account_menu():
     if account_menu_answer is None:
         return
     account_menu_answer = account_menu_answer.strip().lower()
-    if account_menu_answer == "a":
+    if account_menu_answer == "c":
         game_stats.calculate_stats('pia')
     elif account_menu_answer == "b":
         user_management.change_username_and_password()
-    elif account_menu_answer == "c":
+    elif account_menu_answer == "a":
         game.start_game()
     elif account_menu_answer == "d":
         tutorial.start_tutorial()
