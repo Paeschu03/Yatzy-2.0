@@ -1,36 +1,31 @@
 import pickle 
 import menus
+import csv
+import os
 
 # loaded_user_data = {"anna": "1234", "ben": "geheim"}
 # with open('userdata.pkl', 'wb') as userdata:
  #   pickle.dump(loaded_user_data, userdata)
 
-
-
+datei = "userdata.csv"
 def login():
-   #Die gespeicherten Benutzernamen und Passwörter werden geladen.
-   with open('userdata.pkl', 'rb') as userdata:
-      current_user_list = pickle.load(userdata)
-      print("Login:", userdata)
-      
-   username = input("Dein Benutzernamen: ")
-   password = input("Dein Passwort: ")
+    if not os.path.exists(datei):
+        print("Sie können nicht eingeloggt werden, da noch keine Daten vorhanden sind")
+        menus.show_start_menu()
 
-   if username not in current_user_list:
-      print("Den Benutzernamen '", username, "'konnte nicht gefunden werden")
-      nochmals = input("Verschrieben? Ja / Nein ")
-      if nochmals == "Ja":
-         login()
-      if nochmals == "Nein":
-         menus.show_start_menu()
-   print(current_user_list)
-   if current_user_list[username] != password: 
-      print("Falscher Benutzername oder Falsches Passwort")
-      login()
-      return
+    username = input("Benutzername: ")
+    password = input("Passwort: ")
 
-   if current_user_list[username] == password: 
-      print("Sie sind erfolgreich eingeloggt")
-      menus.show_account_menu()
+    with open(datei, "r", newline="") as loaded_login_data:
+        reader = csv.reader(loaded_login_data)
+        for row in reader:
+            if row and row[0] == username and row[1] == password: 
+                print("Willkommen: ", username)
+                menus.show_account_menu()
+    print("Benutzername oder Passwort ist falsch!")
+    login()
 
+
+
+    
 

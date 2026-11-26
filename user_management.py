@@ -1,94 +1,130 @@
 from input_handling import get_input
 import pickle 
 import menus
+import csv
+import os
 
 #loaded_user_data = {"anna": "1234", "ben": "geheim"}
 #with open('userdata.pkl', 'wb') as userdata:
 #    pickle.dump(loaded_user_data, userdata)
 
-with open('userdata.pkl', 'rb') as userdata:
-   loaded_dict = pickle.load(userdata)
 
+
+datei = "userdata.csv"
 
 def create_account():
-    create_new_user = get_input("Möchtest du einen neuen Benutzer anlegen? ")
-    if create_new_user is None:
-        return
-    create_new_user = create_new_user.strip().lower()
-    if create_new_user in ["ja", "j", "yes", "jo", "klar", "ju"]:
-        new_username = get_input("Oke. Dann gebe nun deinen gewünschten Benutzernamen ein: ")
-        if new_username is None:
-            return
-        new_username = new_username.strip()
-        new_password = get_input("Gebe nun ein Passwort ein: ")
-        if new_password is None:
-            return
-        loaded_dict[new_username] = new_password
-        with open('userdata.pkl', 'wb') as datei:   # 'wb' = Datei komplett überschreiben        
-            pickle.dump(loaded_dict, datei)
-        print(f"Dein Benutzerkonto mit dem Benutzernamen {new_username} und dem Passwort {new_password} wurden nun angelegt.")
-        menus.show_account_menu()
-    else:
-        print("Oke. Dann legen wir dir kein neues Benutzerkonto an")
+    if not os.path.exists(datei):
+        with open(datei, "w", newline="") as login_data:
+            writer = csv.writer(login_data)
+            writer.writerow(["username", "password"])
+
+
+    username = input("Benutzername: ")
+    password = input("Passwort: ")
+
+    with open(datei, "r", newline="") as login_data:
+        reader = csv.reader(login_data)
+        for row in reader: 
+            if row and row[0] == username:
+                print("Diesen Benutzernamen gibt es schon")
+                create_account()
+            
+        with open(datei, "a", newline="") as login_data:
+            writer = csv.writer(login_data)
+            writer.writerow([username, password])
+            print("Der Benutzer wurde erfolgreich angelegt")     
 
 
 def change_username_and_password():
-    '''Erstellt von Anna'''
-    with open('userdata.pkl', 'rb') as userdata:
-        loaded_dict = pickle.load(userdata)
-    veränderung_benutzer = get_input("Möchtest du deinen Benutzernamen und Passwort ändern? ")
-    if veränderung_benutzer is None:
-        return
-    veränderung_benutzer = veränderung_benutzer.strip().lower()
-    if veränderung_benutzer in ["ja", "j", "yes", "jo", "klar", "ju"]: # Hier wird sichergegangen dass der User seine Angaben verändern will
-        überprüfung_veränderung_benutzer = str(get_input("Gib bitte zuerst deinen alten Benutzername ein: ")) # Damit auch der Richtige Benutzer geändert wird, Fragen wir nach Benutzername und Passwort
-        if überprüfung_veränderung_benutzer is None:
-            return
-        überprüfung_veränderung_passwort = str(get_input("Und jetzt bitte noch dein Passwort: "))
-        if überprüfung_veränderung_passwort is None:
-            return
-        if überprüfung_veränderung_benutzer in loaded_dict and loaded_dict[überprüfung_veränderung_benutzer] == überprüfung_veränderung_passwort: #Bei dieser Line wird zuerst überprüft, ob der Benutzername vorhanden ist und danach ob das Passwort übereinstimmt
-            veränderter_benutzername = str(get_input("Bitte gib einen neuen Benutzername ein: "))
-            if veränderter_benutzername is None:
-                return
-            veränderter_benutzername = veränderter_benutzername.strip().lower()
-            verändertes_passwort = str(get_input("Bitte gib ein neues Passwort ein: "))
-            if verändertes_passwort is None:
-                return
-            verändertes_passwort = verändertes_passwort.strip()
-            del loaded_dict[überprüfung_veränderung_benutzer]   # alten Benutzer entfernen
-            loaded_dict[veränderter_benutzername] = verändertes_passwort
-            with open('userdata.pkl', 'wb') as userdata:
-                pickle.dump(loaded_dict, userdata)
-            print("Dein Benutzername und Passwort wurden erfolgreich gespeichert.")
-            
-        else:
-            print("Diese Kombination konnten wir leider nicht finden, probier es bitte nochmals.")
-            
+    if not os.path.exists(datei):
+        with open(datei, "w", newline="") as login_data:
+            writer = csv.writer(login_data)
+            writer.writerow(["username", "password"])
+
+    username = input("Benutzername: ")
+    password = input("Passwort: ")
+
+    with open(datei, "r", newline="") as loaded_data:
+        reader = csv.reader(loaded_data)
+        all_data = list(reader)
+
+    # 1. Nur suchen und merken
+    user_row = None
+    for row in all_data:
+        if row and row[0] == username and row[1] == password:
+            user_row = row
+
+    # 2. Erst nach der Schleife entscheiden
+    if user_row is None:
+        print("Benutzername oder Passwort falsch!")
+        change_username_and_password()
+        
+
+    anwser = input("Wollen Sie (A) Benutzernamen oder (B) Passwort ändern? ")
+
+    if anwser == "A" or anwser == "a":
+        new_unsername = input("Neuer Benutzername: ")
+        for other_row in all_data:
+            if other_row and other_row[0] == new_unsername:
+                print("Benutzernamen schon vergeben")
+                change_username_and_password()
+                
+        user_row[0] = new_unsername
+        print("Benutzername wurde geändert.")
+        with open(datei, "w", newline="") as login_data:
+                writer = csv.writer(login_data)
+                writer.writerows(all_data)
+        menus.show_account_menu()
+
+    elif anwser == "B" or anwser == "b":
+        new_password = input("Neues Passwort: ")
+        user_row[1] = new_password
+        print("Passwort wurde geändert.")
+        with open(datei, "w", newline="") as login_data:
+                writer = csv.writer(login_data)
+                writer.writerows(all_data)
+        menus.show_account_menu()
+
     else:
-        print("Dann wird nichts verändert.")
+        print("Ungültige Auswahl.")
+        #weiterleitung noch reinnehmen
+
 
 def delete_user():
-    loeschen_antwort = get_input("Möchtest du deinen Account wirklich löschen? ")
-    if loeschen_antwort is None:
+    if not os.path.exists(datei):
+        print("Es gibt noch keine Benutzer.")
         return
-    loeschen_antwort = loeschen_antwort.strip().lower()
-    if loeschen_antwort in ["ja", "j", "yes", "jo", "klar", "ju"]:
-        loeschen_name = get_input("Alles klar. Welchen Account möchstest du löschen? ")
-        if loeschen_name is None:
-            return
-        loeschen_name = loeschen_name.strip()
-        if loeschen_name in loaded_dict:
-            loeschen_passwort = get_input("Gebe zur endgültigen Löschung dein Passwort ein: ")
-            if loeschen_passwort is None:
-                return
-            if loeschen_passwort == loaded_dict[loeschen_name]:
-                del loaded_dict[loeschen_name]
-                print(f"Dein Account {loeschen_name} wurde gelöscht.")
-            else:
-                print("Falsches Passwort. Der Account wurde nicht gelöscht.")
-        else:
-            print("Dieser Benutzer wurde nicht gefunden. ")
-    else:
-        print("Alles klar. Dein Account wurde nicht gelöscht. ")
+
+    username = input("Benutzername: ")
+    password = input("Passwort: ")
+
+    with open(datei, "r", newline="") as loaded_data:
+        reader = csv.reader(loaded_data)
+        all_data = list(reader)
+
+    # 1. Nur suchen und merken
+    user_row = None
+    for row in all_data:
+        if row and row[0] == username and row[1] == password:
+            user_row = row
+
+    # 2. Erst nach der Schleife entscheiden
+    if user_row is None:
+        print("Benutzername oder Passwort falsch!")
+        return
+
+    anwser = input("Willst du deinen Account wirklich löschen? (J/N) ")
+    if anwser != "J" and anwser != "j":
+        print("Löschen abgebrochen.")
+        return
+
+    # 3. Zeile aus der Liste entfernen
+    all_data.remove(user_row)
+
+    # 4. Liste zurück in die Datei schreiben
+    with open(datei, "w", newline="") as login_data:
+        writer = csv.writer(login_data)
+        writer.writerows(all_data)
+
+    print("Der Account " + username + " wurde gelöscht.")
         
